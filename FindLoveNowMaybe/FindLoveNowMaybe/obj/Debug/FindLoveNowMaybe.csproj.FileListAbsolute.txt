@@ -64,3 +64,9 @@ C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNow
 C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\obj\Debug\FindLoveNowMaybe.csprojResolveAssemblyReference.cache
 C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\obj\Debug\FindLoveNowMaybe.dll
 C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\obj\Debug\FindLoveNowMaybe.pdb
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\EntityFramework.dll
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\EntityFramework.SqlServer.dll
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\EntityFramework.xml
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\EntityFramework.SqlServer.xml
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\Repositories.dll
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\Repositories.pdb
