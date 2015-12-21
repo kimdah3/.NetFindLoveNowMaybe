@@ -1,10 +1,77 @@
-﻿
+﻿@model FindLoveNowMaybe.Models.RegistrationModel
 @{
     ViewBag.Title = "Register";
 }
 
 <h2>Register</h2>
 
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    @Html.DisplayNameFor(x => x.FirstName);
+    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.FirstName)
+
+    <br/>
+
+    @Html.DisplayNameFor(x => x.LastName);
+    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.LastName)
+
+    <br/>
+
+    @Html.DisplayNameFor(x => x.UserName);
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.UserName)
+
+    <br />
+
+    @Html.DisplayNameFor(x => x.Password)
+    @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Password)
+
+    <br />
+
+    @Html.DisplayNameFor(x => x.PasswordMatch)
+    @Html.PasswordFor(x => x.PasswordMatch, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PasswordMatch)
+
+    <br />
+
+    @Html.DisplayNameFor(x => x.Description)
+    @Html.TextAreaFor(x => x.Description, new {@class = "form-control"})
+    @Html.ValidationMessageFor(x => x.Description)
+
+    <br/>
+
+    @Html.DisplayNameFor(x => x.Age);
+    @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Age)
+
+    <br/>
+
+    @Html.DisplayNameFor(x => x.Picture);
+    @Html.TextBoxFor(x => x.Picture, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Picture)
+
+    <br />
+
+    <input type="submit" value="Register" />
+
+}
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <div class="container" id="hejdå">
     <form class="form-inline" role="form">
         <div class="form-group">
@@ -21,3 +88,4 @@
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
+-->

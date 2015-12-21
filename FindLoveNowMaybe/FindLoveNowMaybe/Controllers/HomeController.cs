@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using FindLoveNowMaybe.Models;
 using Repositories;
 
 namespace FindLoveNowMaybe.Controllers
@@ -19,20 +21,25 @@ namespace FindLoveNowMaybe.Controllers
                 user.SentFriendRequests.Add(user2);
                 repostiry.SaveUser();
             }
-            
 
             return View();
-
-
         }
 
-
-        public ActionResult Register()
+        public ActionResult Register(RegistrationModel model)
         {
-            return View();
-        }
+            if (!ModelState.IsValid)
+                return View();
 
-        public ActionResult Login()
+            var registrationCompleted = true; // Försök registrera...
+            if (!registrationCompleted)
+            {
+                ModelState.AddModelError("", "Ett felmeddelande...");
+                return View();
+            }
+            FormsAuthentication.SetAuthCookie(model.UserName, false);
+            return RedirectToAction("Index", "User");
+        }
+                public ActionResult Login()
         {
             return View();
         }
