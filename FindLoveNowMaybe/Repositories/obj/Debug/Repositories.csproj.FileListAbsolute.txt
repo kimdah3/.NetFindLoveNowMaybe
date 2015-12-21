@@ -8,3 +8,13 @@ C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories
 C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
 C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.dll
 C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.pdb
+C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\Repositories.dll.config
+C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\Repositories.dll
+C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\Repositories.pdb
+C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.dll
+C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.xml
+C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.dll
+C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.pdb
