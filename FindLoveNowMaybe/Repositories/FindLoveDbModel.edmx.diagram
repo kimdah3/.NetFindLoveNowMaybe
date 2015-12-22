@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a23360bea2af43248d49fe343332bf89" Name="Diagram1" ZoomLevel="96">
+      <Diagram DiagramId="a9b13423fb5543ae9b575d231f270349" Name="Diagram1">
         <EntityTypeShape EntityType="FindLoveDbModel.Message" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FindLoveDbModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="FindLoveDbModel.Friend" ManuallyRouted="false" />

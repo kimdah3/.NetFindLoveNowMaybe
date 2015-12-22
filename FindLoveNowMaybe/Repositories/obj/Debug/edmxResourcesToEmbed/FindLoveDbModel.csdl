@@ -20,14 +20,14 @@
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Sex" Type="Boolean" Nullable="false" />
     <Property Name="InterestedMen" Type="Boolean" Nullable="false" />
     <Property Name="InterestedWomen" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="SentFriends" Relationship="Self.Friend" FromRole="User" ToRole="User1" />
-    <NavigationProperty Name="RecievedFriends" Relationship="Self.Friend" FromRole="User1" ToRole="User" />
-    <NavigationProperty Name="SentFriendRequests" Relationship="Self.FriendRequest" FromRole="User" ToRole="User1" />
-    <NavigationProperty Name="RecievedFriendRequests" Relationship="Self.FriendRequest" FromRole="User1" ToRole="User" />
+    <NavigationProperty Name="SentFriend" Relationship="Self.Friend" FromRole="User" ToRole="User1" />
+    <NavigationProperty Name="ReceivedFriend" Relationship="Self.Friend" FromRole="User1" ToRole="User" />
+    <NavigationProperty Name="SentFriendRequest" Relationship="Self.FriendRequest" FromRole="User" ToRole="User1" />
+    <NavigationProperty Name="ReceivedFriendRequest" Relationship="Self.FriendRequest" FromRole="User1" ToRole="User" />
   </EntityType>
   <Association Name="Friend">
     <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -37,7 +37,7 @@
     <End Role="User" Type="Self.User" Multiplicity="*" />
     <End Role="User1" Type="Self.User" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="FindLoveDbEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="FindLoveDbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Message" EntityType="Self.Message" />
     <EntitySet Name="User" EntityType="Self.User" />
     <AssociationSet Name="Friend" Association="Self.Friend">

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="FindLoveDbModelStoreContainer" CdmEntityContainer="FindLoveDbEntities1">
+  <EntityContainerMapping StorageEntityContainer="FindLoveDbModelStoreContainer" CdmEntityContainer="FindLoveDbEntities">
     <EntitySetMapping Name="Message">
       <EntityTypeMapping TypeName="FindLoveDbModel.Message">
         <MappingFragment StoreEntitySet="Message">
@@ -38,10 +38,10 @@
     </AssociationSetMapping>
     <AssociationSetMapping Name="FriendRequest" TypeName="FindLoveDbModel.FriendRequest" StoreEntitySet="FriendRequest">
       <EndProperty Name="User">
-        <ScalarProperty Name="Id" ColumnName="FRequestReceiverId" />
+        <ScalarProperty Name="Id" ColumnName="FRequestSenderId" />
       </EndProperty>
       <EndProperty Name="User1">
-        <ScalarProperty Name="Id" ColumnName="FRequestSenderId" />
+        <ScalarProperty Name="Id" ColumnName="FRequestReceiverId" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

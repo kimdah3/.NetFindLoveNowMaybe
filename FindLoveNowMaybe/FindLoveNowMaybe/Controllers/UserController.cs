@@ -11,7 +11,6 @@ namespace FindLoveNowMaybe.Controllers
         // GET: User
         public ActionResult Index()
         {
-            var test = "asd";
             return View();
         }
 

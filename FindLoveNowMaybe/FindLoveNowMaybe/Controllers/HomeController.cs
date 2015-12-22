@@ -17,8 +17,8 @@ namespace FindLoveNowMaybe.Controllers
             using(var repostiry = new UserRepository())
             {
                 var user = repostiry.GetFirstUser();
-                var user2 = repostiry.GetUser(3);
-                user.SentFriendRequests.Add(user2);
+                var user2 = repostiry.GetUser(2);
+                user.SentFriendRequest.Add(user2);
                 repostiry.SaveUser();
             }
 

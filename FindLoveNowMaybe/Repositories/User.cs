@@ -17,10 +17,10 @@ namespace Repositories
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.SentFriends = new HashSet<User>();
-            this.RecievedFriends = new HashSet<User>();
-            this.SentFriendRequests = new HashSet<User>();
-            this.RecievedFriendRequests = new HashSet<User>();
+            this.SentFriend = new HashSet<User>();
+            this.ReceivedFriend = new HashSet<User>();
+            this.SentFriendRequest = new HashSet<User>();
+            this.ReceivedFriendRequest = new HashSet<User>();
         }
     
         public int Id { get; set; }
@@ -30,18 +30,18 @@ namespace Repositories
         public string Password { get; set; }
         public string Description { get; set; }
         public string Age { get; set; }
-        public byte[] Picture { get; set; }
+        public string Picture { get; set; }
         public bool Sex { get; set; }
         public bool InterestedMen { get; set; }
         public bool InterestedWomen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> SentFriends { get; set; }
+        public virtual ICollection<User> SentFriend { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> RecievedFriends { get; set; }
+        public virtual ICollection<User> ReceivedFriend { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> SentFriendRequests { get; set; }
+        public virtual ICollection<User> SentFriendRequest { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> RecievedFriendRequests { get; set; }
+        public virtual ICollection<User> ReceivedFriendRequest { get; set; }
     }
 }

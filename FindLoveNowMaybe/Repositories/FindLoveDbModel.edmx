@@ -41,12 +41,12 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Age" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Picture" Type="image" Nullable="false" />
+          <Property Name="Picture" Type="nvarchar(max)" />
           <Property Name="Sex" Type="bit" Nullable="false" />
           <Property Name="InterestedMen" Type="bit" Nullable="false" />
           <Property Name="InterestedWomen" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Friend__Receiver__286302EC">
+        <Association Name="FK__Friend__Receiver__4CA06362">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Friend" Type="Self.Friend" Multiplicity="*" />
           <ReferentialConstraint>
@@ -58,7 +58,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Friend__SenderId__276EDEB3">
+        <Association Name="FK__Friend__SenderId__4BAC3F29">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Friend" Type="Self.Friend" Multiplicity="*" />
           <ReferentialConstraint>
@@ -70,19 +70,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FriendReq__Recei__24927208">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="FriendRequest" Type="Self.FriendRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="FriendRequest">
-              <PropertyRef Name="FRequestReceiverId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__FriendReq__Sende__239E4DCF">
+        <Association Name="FK__FriendReq__FRequ__49C3F6B7">
           <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="FriendRequest" Type="Self.FriendRequest" Multiplicity="*" />
           <ReferentialConstraint>
@@ -94,24 +82,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__FriendReq__FRequ__4AB81AF0">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="FriendRequest" Type="Self.FriendRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FriendRequest">
+              <PropertyRef Name="FRequestReceiverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="FindLoveDbModelStoreContainer">
           <EntitySet Name="Friend" EntityType="Self.Friend" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FriendRequest" EntityType="Self.FriendRequest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Friend__Receiver__286302EC" Association="Self.FK__Friend__Receiver__286302EC">
+          <AssociationSet Name="FK__Friend__Receiver__4CA06362" Association="Self.FK__Friend__Receiver__4CA06362">
             <End Role="User" EntitySet="User" />
             <End Role="Friend" EntitySet="Friend" />
           </AssociationSet>
-          <AssociationSet Name="FK__Friend__SenderId__276EDEB3" Association="Self.FK__Friend__SenderId__276EDEB3">
+          <AssociationSet Name="FK__Friend__SenderId__4BAC3F29" Association="Self.FK__Friend__SenderId__4BAC3F29">
             <End Role="User" EntitySet="User" />
             <End Role="Friend" EntitySet="Friend" />
           </AssociationSet>
-          <AssociationSet Name="FK__FriendReq__Recei__24927208" Association="Self.FK__FriendReq__Recei__24927208">
+          <AssociationSet Name="FK__FriendReq__FRequ__49C3F6B7" Association="Self.FK__FriendReq__FRequ__49C3F6B7">
             <End Role="User" EntitySet="User" />
             <End Role="FriendRequest" EntitySet="FriendRequest" />
           </AssociationSet>
-          <AssociationSet Name="FK__FriendReq__Sende__239E4DCF" Association="Self.FK__FriendReq__Sende__239E4DCF">
+          <AssociationSet Name="FK__FriendReq__FRequ__4AB81AF0" Association="Self.FK__FriendReq__FRequ__4AB81AF0">
             <End Role="User" EntitySet="User" />
             <End Role="FriendRequest" EntitySet="FriendRequest" />
           </AssociationSet>
@@ -141,14 +141,14 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Sex" Type="Boolean" Nullable="false" />
           <Property Name="InterestedMen" Type="Boolean" Nullable="false" />
           <Property Name="InterestedWomen" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="SentFriends" Relationship="Self.Friend" FromRole="User" ToRole="User1" />
-          <NavigationProperty Name="RecievedFriends" Relationship="Self.Friend" FromRole="User1" ToRole="User" />
-          <NavigationProperty Name="SentFriendRequests" Relationship="Self.FriendRequest" FromRole="User" ToRole="User1" />
-          <NavigationProperty Name="RecievedFriendRequests" Relationship="Self.FriendRequest" FromRole="User1" ToRole="User" />
+          <NavigationProperty Name="SentFriend" Relationship="Self.Friend" FromRole="User" ToRole="User1" />
+          <NavigationProperty Name="ReceivedFriend" Relationship="Self.Friend" FromRole="User1" ToRole="User" />
+          <NavigationProperty Name="SentFriendRequest" Relationship="Self.FriendRequest" FromRole="User" ToRole="User1" />
+          <NavigationProperty Name="ReceivedFriendRequest" Relationship="Self.FriendRequest" FromRole="User1" ToRole="User" />
         </EntityType>
         <Association Name="Friend">
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -158,7 +158,7 @@
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <End Role="User1" Type="Self.User" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="FindLoveDbEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="FindLoveDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Message" EntityType="Self.Message" />
           <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="Friend" Association="Self.Friend">
@@ -175,7 +175,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FindLoveDbModelStoreContainer" CdmEntityContainer="FindLoveDbEntities1">
+        <EntityContainerMapping StorageEntityContainer="FindLoveDbModelStoreContainer" CdmEntityContainer="FindLoveDbEntities">
           <EntitySetMapping Name="Message">
             <EntityTypeMapping TypeName="FindLoveDbModel.Message">
               <MappingFragment StoreEntitySet="Message">
@@ -213,10 +213,10 @@
           </AssociationSetMapping>
           <AssociationSetMapping Name="FriendRequest" TypeName="FindLoveDbModel.FriendRequest" StoreEntitySet="FriendRequest">
             <EndProperty Name="User">
-              <ScalarProperty Name="Id" ColumnName="FRequestReceiverId" />
+              <ScalarProperty Name="Id" ColumnName="FRequestSenderId" />
             </EndProperty>
             <EndProperty Name="User1">
-              <ScalarProperty Name="Id" ColumnName="FRequestSenderId" />
+              <ScalarProperty Name="Id" ColumnName="FRequestReceiverId" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>
