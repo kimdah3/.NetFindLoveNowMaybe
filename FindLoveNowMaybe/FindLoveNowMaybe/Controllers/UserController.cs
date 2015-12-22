@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace FindLoveNowMaybe.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         // GET: User
@@ -13,6 +14,5 @@ namespace FindLoveNowMaybe.Controllers
         {
             return View();
         }
-
     }
 }

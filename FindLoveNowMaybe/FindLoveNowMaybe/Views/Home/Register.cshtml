@@ -27,14 +27,15 @@
 
     <br />
 
-    @Html.DisplayNameFor(x => x.Password)
+    @Html.LabelFor(x => x.Password, new {@class = "form-control"})
     @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.Password)
 
     <br />
 
-    @Html.DisplayNameFor(x => x.PasswordMatch)
-    @Html.PasswordFor(x => x.PasswordMatch, new { @class = "form-control" })
+    @Html.LabelFor(x => x.PasswordMatch, new {@style = "font-family:oswald"})
+    @Html.PasswordFor(x => x.PasswordMatch, new { @class
+    = "form-control" })
     @Html.ValidationMessageFor(x => x.PasswordMatch)
 
     <br />
@@ -55,10 +56,40 @@
     @Html.TextBoxFor(x => x.Picture, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.Picture)
 
+    <br/>
+
+    @Html.DisplayNameFor(x => x.Sex);
+    @Html.DropDownListFor(x => x.Sex, new List<SelectListItem>
+        {
+            new SelectListItem {Text = "Man", Value = "true"},
+            new SelectListItem {Text = "Kvinna", Value = "false"}
+        }, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Sex)
+
+    <br/>
+
+    @Html.DisplayNameFor(x => x.InterestedMen);
+    @Html.DropDownListFor(x => x.InterestedMen, new List<SelectListItem>
+        {
+            new SelectListItem {Text = "Yes", Value = "true"},
+            new SelectListItem {Text = "No", Value = "false"}
+        }, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.InterestedMen)
+
+    <br/>
+
+    @Html.DisplayNameFor(x => x.InterestedWomen);
+    @Html.DropDownListFor(x => x.InterestedWomen, new List<SelectListItem>
+        {
+            new SelectListItem {Text = "Yes", Value = "true"},
+            new SelectListItem {Text = "No", Value = "false"}
+        }, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.InterestedWomen)
+
     <br />
-
-    <input type="submit" value="Register" />
-
+    
+    <input class="btn btn-info" type="submit" value="Register" />
+    @*<button type="submit" class="btn btn-info">Submit</button>*@
 }
 
 

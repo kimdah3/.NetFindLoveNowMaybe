@@ -24,7 +24,7 @@ namespace Repositories
                 return Context.User.FirstOrDefault(x => x.Id == id);
         }
 
-        public void SaveUser()
+        public void Save()
         {
                 Context.SaveChanges();
         }
