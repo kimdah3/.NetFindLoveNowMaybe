@@ -33,5 +33,16 @@ namespace Repositories
         {
             this.Context.Dispose();
         }
+
+        public User LoginUser(string userName, string password)
+        {
+            var user = Context.User.FirstOrDefault(x => x.UserName == userName && x.Password.Equals(password));
+            return user;
+        }
+
+        public User GetUserByUserName(string userName)
+        {
+            return Context.User.FirstOrDefault(x => x.UserName.Equals(userName));
+        }
     }
 }

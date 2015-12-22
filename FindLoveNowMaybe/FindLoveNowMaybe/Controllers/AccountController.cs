@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Security;
 using FindLoveNowMaybe.Models;
@@ -13,18 +15,37 @@ namespace FindLoveNowMaybe.Controllers
     {
 
         // GET: Login
-        [HttpPost]
+        [HttpGet]
         public ActionResult Index()
         {
             return View(new LoginModel());
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Index(LoginModel model)
         {
-            return View();
-        }
+            //Resettar felmeddelande för login. 
+            model.ErrorMessage = null;
 
+            //Om felaktig input i validering, avbryt och retunera hela viewn
+            if (!ModelState.IsValid) return View(model);
+
+            var userName = model.UserName;
+            var password = model.Password;
+
+            using (var userRepository = new UserRepository())
+            {
+                var userLoggingIn = userRepository.LoginUser(userName, password);
+
+                if (userLoggingIn == null) //avbryter och skickar felmeddelande om loginnet är felaktigt.
+                {
+                    model.ErrorMessage = "Wrong username or password"; //
+                    return View(model);
+                }
+                FormsAuthentication.SetAuthCookie(userLoggingIn.UserName, false);
+                return RedirectToAction("Profile", "User", new { userName = userLoggingIn.UserName});
+            }
+        }
 
         [HttpGet]
         public ActionResult Register()
@@ -35,7 +56,7 @@ namespace FindLoveNowMaybe.Controllers
         [HttpPost]
         public ActionResult Register(RegistrationModel model)
         {
-            if (!ModelState.IsValid) return View(); //Om felaktig input, returnera tom view
+            if (!ModelState.IsValid) return View(); //Om felaktig input, returnera view
 
             var newUser = new User()
             {

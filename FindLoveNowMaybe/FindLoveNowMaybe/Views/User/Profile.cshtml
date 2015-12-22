@@ -1,0 +1,16 @@
+﻿@model FindLoveNowMaybe.Models.UserModel
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<h1>@Model.FirstName @Model.LastName</h1>
+<p>Username: @Model.UserName</p>
+<p>Description: @Model.Description</p>
+<p>Age: @Model.Age</p>
+<p>Picture: @Model.Picture</p>
+<p>Sex: @Model.Sex</p>
+<p>Age: @Model.Age</p>
+<p>Interested in men: @Model.InterestedMen</p>
+<p>Interested in women: @Model.InterestedWomen</p>
