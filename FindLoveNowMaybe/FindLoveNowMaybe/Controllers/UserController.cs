@@ -25,6 +25,7 @@ namespace FindLoveNowMaybe.Controllers
                     LastName = activeUser.LastName,
                     UserName = activeUser.UserName,
                     Description = activeUser.Description,
+                    Picture = activeUser.Picture,
                     Age = activeUser.Age,
                     Sex = activeUser.Sex,
                     InterestedMen = activeUser.InterestedMen,

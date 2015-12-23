@@ -14,18 +14,13 @@ namespace FindLoveNowMaybe.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            //******************
-            //KOD SOM TESTAR uTIFALL DET GÅR ATT SKICKA FRIENDREQUEST.
-            //******************
-            //using (var repostiry = new UserRepository())
-            //{
-            //    var user = repostiry.GetFirstUser();
-            //    var user2 = repostiry.GetUser(2);
-            //    user.SentFriendRequest.Add(user2);
-            //    repostiry.Save();
-            //}
+            var homeModel = new HomeModel();
+            using (var userRepository = new UserRepository())
+            {
+                homeModel.RandomUsers = userRepository.GetFourRandomUsers();
+            }
 
-            return View();
+            return View(homeModel);
         }
     }
 }

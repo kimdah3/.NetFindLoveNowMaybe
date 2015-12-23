@@ -38,9 +38,9 @@ namespace FindLoveNowMaybe.Models
         [Required(ErrorMessage = "Assign personal number")]
         public string Age { get; set; }
 
-        [Display(Name = "Picture")]
-        [Required(ErrorMessage = "Assign picture")]
-        public string Picture { get; set; }
+        //[Display(Name = "Picture")]
+        //[Required(ErrorMessage = "Assign picture")]
+        //public string Picture { get; set; }
 
         [Display(Name = "Sex")]
         [Required(ErrorMessage = "State your gender!")]

@@ -33,10 +33,6 @@
             @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.Age)
             <br />
-            @Html.LabelFor(x => x.Picture, new { @style = "font-family:'Open sans'" })
-            @Html.TextBoxFor(x => x.Picture, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x => x.Picture)
-            <br />
             @Html.LabelFor(x => x.Sex, new { @style = "font-family:'Open sans'" })
             @Html.DropDownListFor(x => x.Sex, new List<SelectListItem>
             {

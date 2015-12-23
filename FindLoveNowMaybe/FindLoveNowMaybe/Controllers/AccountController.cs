@@ -57,6 +57,7 @@ namespace FindLoveNowMaybe.Controllers
         public ActionResult Register(RegistrationModel model)
         {
             if (!ModelState.IsValid) return View(); //Om felaktig input, returnera view
+            
 
             var newUser = new User()
             {
@@ -66,7 +67,7 @@ namespace FindLoveNowMaybe.Controllers
                 Password = model.Password,
                 Description = model.Description,
                 Age = model.Age,
-                Picture = model.Picture,
+                Picture = "default.png",
                 Sex = model.Sex,
                 InterestedMen = model.InterestedMen,
                 InterestedWomen = model.InterestedWomen
@@ -74,6 +75,11 @@ namespace FindLoveNowMaybe.Controllers
 
             using (var userRepository = new UserRepository())
             {
+                if (!userRepository.IsUniqueUserName(newUser.UserName))
+                {
+                    ModelState.AddModelError("","Username already exists!");
+                    return View();
+                }
                 userRepository.Context.User.Add(newUser);
                 userRepository.Save();
             }

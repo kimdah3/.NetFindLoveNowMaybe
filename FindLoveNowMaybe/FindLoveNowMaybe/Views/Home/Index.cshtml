@@ -1,16 +1,23 @@
-﻿
+﻿@model FindLoveNowMaybe.Models.HomeModel
 @{
     ViewBag.Title = "Index";
 }
 
 
 <!--Under Navbar-->
+
+<h4>Fyra random users:</h4>
+<p>@Model.RandomUsers[0].UserName</p>
+<p>@Model.RandomUsers[1].UserName</p>
+<p>@Model.RandomUsers[2].UserName</p>
+<p>@Model.RandomUsers[3].UserName</p>
+
 <div class="container">
     <div class="jumbotron text-center">
         <h1>Find Love Now Maybe</h1>
         <p>At our site for only $50/month you will find your next love, maybe.</p>
-        <a href="#" class="btn btn-primary">Login in </a>
-        <a href="#" class="btn btn-success">Index Now </a>
+        @Html.ActionLink("Login", "Index", "Account",null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Register", "Register", "Account", null, new {@class="btn btn-success"})
     </div>
 </div>
 
@@ -25,7 +32,7 @@
     <div class="col-md-3 col-sm-6 hero-feature">
         <div class="thumbnail">
             <a href="#">
-                <img src="/Images/sibbe.jpg" class="img-rounded" alt="hej">
+                <img src="\Content\Images\sibbe.jpg" class="img-rounded" alt="hej">
 
             </a>
             <div class="caption">
@@ -41,14 +48,14 @@
     <div class="col-md-3 col-sm-6 hero-feature">
         <div class="thumbnail">
             <a href="#">
-                <img src="/Images/chips.jpg" class="img-rounded" alt="hej" width="190" height="190">
+                <img src="\Content\Images/chips.jpg" class="img-rounded" alt="hej" width="190" height="190">
 
             </a>
             <div class="caption">
                 <h3>Djchipz, 23</h3>
                 <p>Loves estrella and OLW</p>
                 <p>
-                    <a href="/home/register" class="btn btn-info">See profile</a>
+                    <a href="\Content\Images/register" class="btn btn-info">See profile</a>
                 </p>
             </div>
         </div>
@@ -57,7 +64,7 @@
     <div class="col-md-3 col-sm-6 hero-feature">
         <div class="thumbnail">
             <a href="#">
-                <img src="/Images/Linus.jpg" class="img-rounded" alt="hej">
+                <img src="\Content\Images/Linus.jpg" class="img-rounded" alt="hej">
 
             </a>
             <div class="caption">
@@ -72,7 +79,7 @@
     <div class="col-md-3 col-sm-6 hero-feature">
         <div class="thumbnail">
             <a href="#">
-                <img src="/Images/kim.jpg" class="img-rounded" alt="hej">
+                <img src="\Content\Images\kim.jpg" class="img-rounded" alt="hej">
 
             </a>
             <div class="caption">

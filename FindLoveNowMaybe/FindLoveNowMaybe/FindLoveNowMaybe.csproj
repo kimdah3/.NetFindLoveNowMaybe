@@ -103,14 +103,15 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\custom.css" />
+    <Content Include="Content\Images\default.png" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Images\chips.jpg" />
-    <Content Include="Images\chipz.png" />
-    <Content Include="Images\kim.jpg" />
-    <Content Include="Images\Linus.jpg" />
-    <Content Include="Images\sibbe.jpg" />
+    <Content Include="Content\Images\chips.jpg" />
+    <Content Include="Content\Images\chipz.png" />
+    <Content Include="Content\Images\kim.jpg" />
+    <Content Include="Content\Images\Linus.jpg" />
+    <Content Include="Content\Images\sibbe.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -127,6 +128,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\UserModel.cs" />

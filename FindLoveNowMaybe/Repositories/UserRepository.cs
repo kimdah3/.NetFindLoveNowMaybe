@@ -16,17 +16,17 @@ namespace Repositories
 
         public User GetFirstUser()
         {
-                return Context.User.FirstOrDefault();
+            return Context.User.FirstOrDefault();
         }
 
-        public User GetUser(int id)
+        public User GetUserById(int id)
         {
-                return Context.User.FirstOrDefault(x => x.Id == id);
+            return Context.User.FirstOrDefault(x => x.Id == id);
         }
 
         public void Save()
         {
-                Context.SaveChanges();
+            Context.SaveChanges();
         }
 
         public void Dispose()
@@ -43,6 +43,23 @@ namespace Repositories
         public User GetUserByUserName(string userName)
         {
             return Context.User.FirstOrDefault(x => x.UserName.Equals(userName));
+        }
+
+        public bool IsUniqueUserName(string userName)
+        {
+            var user = GetUserByUserName(userName);
+            return user == null;
+        }
+
+        public List<User> GetFourRandomUsers()
+        {
+            var randomUsers = new List<User>();
+            var unOrderedUsers = Context.User.OrderBy(x => Guid.NewGuid()).ToList();
+            randomUsers.Add(unOrderedUsers[0]);
+            randomUsers.Add(unOrderedUsers[1]);
+            randomUsers.Add(unOrderedUsers[2]);
+            randomUsers.Add(unOrderedUsers[3]);
+            return randomUsers;
         }
     }
 }
