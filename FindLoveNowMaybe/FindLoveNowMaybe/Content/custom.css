@@ -24,7 +24,12 @@ h1,h2,h3,h4,h5,h6 {
 
 }
 
-#knappREg {
+#knappRegister {
     margin-top: 20px !important;
+    margin-bottom: 50px!important;
+}
+
+#knappLogin {
+      margin-top: 20px !important;
     margin-bottom: 50px!important;
 }
