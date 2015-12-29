@@ -6,12 +6,6 @@
 
 <!--Under Navbar-->
 
-<h4>Fyra random users:</h4>
-<p>@Model.RandomUsers[0].UserName</p>
-<p>@Model.RandomUsers[1].UserName</p>
-<p>@Model.RandomUsers[2].UserName</p>
-<p>@Model.RandomUsers[3].UserName</p>
-
 <div class="container">
     <div class="jumbotron text-center">
         <h1>Find Love Now Maybe</h1>
@@ -36,8 +30,8 @@
 
             </a>
             <div class="caption">
-                <h3>Kralle, 23</h3>
-                <p>Love motorcycles and big biceps and aslo big women</p>
+                <h3>@Model.RandomUsers[0].UserName </h3>
+                <p>Hej hej</p>
                 <p>
                     <a href="/home/register" class="btn btn-info">See profile</a>
                 </p>
@@ -52,7 +46,7 @@
 
             </a>
             <div class="caption">
-                <h3>Djchipz, 23</h3>
+                <h3>@Model.RandomUsers[1].UserName</h3>
                 <p>Loves estrella and OLW</p>
                 <p>
                     <a href="\Content\Images/register" class="btn btn-info">See profile</a>
@@ -64,11 +58,11 @@
     <div class="col-md-3 col-sm-6 hero-feature">
         <div class="thumbnail">
             <a href="#">
-                <img src="\Content\Images/Linus.jpg" class="img-rounded" alt="hej">
+                <img src="\Content\Images\sibbe.jpg" class="img-rounded" alt="hej">
 
             </a>
             <div class="caption">
-                <h3>Linus, 28</h3>
+                <h3>@Model.RandomUsers[2].UserName</h3>
                 <p>Loves julmust</p>
                 <p>
                     <a href="/home/register" class="btn btn-info">See profile</a>
@@ -83,7 +77,7 @@
 
             </a>
             <div class="caption">
-                <h3>Kim, 25</h3>
+                <h3>@Model.RandomUsers[3].UserName</h3>
                 <p>Loves bollnäsfil</p>
                 <p>
                     <a href="/home/register" class="btn btn-info">See profile</a>
