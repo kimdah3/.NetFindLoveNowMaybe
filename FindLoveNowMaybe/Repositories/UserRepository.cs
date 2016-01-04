@@ -24,6 +24,7 @@ namespace Repositories
             return Context.User.FirstOrDefault(x => x.Id == id);
         }
 
+
         public void Save()
         {
             Context.SaveChanges();
@@ -61,5 +62,6 @@ namespace Repositories
             randomUsers.Add(unOrderedUsers[3]);
             return randomUsers;
         }
+
     }
 }

@@ -67,6 +67,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FindLoveDbModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="FriendReqRepository.cs" />
     <Compile Include="Message.cs">
       <DependentUpon>FindLoveDbModel.tt</DependentUpon>
     </Compile>
