@@ -13,13 +13,15 @@ namespace FindLoveNowMaybe.Controllers
     public class EditController : Controller
     {
         // GET: Edit
-        public ActionResult EditUser()
+        public ActionResult EditUser(string userName)
         {
-            
-            return View();
+            var usermodel = new UserRepository();
+            usermodel.GetUserByUserName(userName);
+            return View(userName);
         }
 
 
+     
 
     }
 }

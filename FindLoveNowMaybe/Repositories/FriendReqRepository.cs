@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    class FriendReqRepository
+    public static void SendFriendRequest(User sender, User Reciever)
     {
-        /*public static void SendFriendRequest(User sender, User Reciever)
+        Reciever.SentFriendRequest.Add(sender);
+        sender.
+        var friendreq = new Friendrequest();
+        friendReq.FRequestSenderId = sender.ID;
+        friendReq.FRequestRecieverId = receiver.ID;
+        using (var db = new FindLoveDbEntities())
         {
-            var friendReq = new FindLoveDbEntities();
-            friendReq. 
-            friendReq.FRequestSenderId
-        }*/
+            db.FriendRequest.Add(friendReq);
+            db.SaveChanges();
+        }
     }
 }

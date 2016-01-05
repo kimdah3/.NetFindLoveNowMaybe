@@ -10,4 +10,6 @@ namespace FindLoveNowMaybe.Models
     {
         public List<User> RandomUsers { get; set; }
     }
+
+   
 }
