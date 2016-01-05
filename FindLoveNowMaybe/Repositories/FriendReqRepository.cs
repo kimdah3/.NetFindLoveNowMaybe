@@ -9,7 +9,7 @@ namespace Repositories
 {
     public class FriendReqRepository
     {
-        public static Boolean CheckActiveFriendRequests(User ActiveUser)
+        public static bool CheckActiveFriendRequests(User ActiveUser)
         {
             var friendList = new List<Friend>();
             using (var db = new FindLoveDbEntities())
@@ -21,12 +21,7 @@ namespace Repositories
                 {
                     friendList.Add(item);
                 }
-                var returnboolean = false ;
-
-                if (friendList.Count > 0)
-                {
-                    returnboolean = true;
-                }
+                var returnboolean = friendList.Count > 0;
                 return returnboolean;
             }
 
