@@ -1,0 +1,74 @@
+﻿@model FindLoveNowMaybe.Models.EditModel
+@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Edit User</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-3" id="registreraID">
+            @Html.ValidationSummary(true)
+            @Html.LabelFor(x => x.FirstName, new { @style = "font-family:'Open sans'" })
+            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.FirstName)
+            <br />
+            @Html.LabelFor(x => x.LastName, new { @style = "font-family:'Open sans'" })
+            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.LastName)
+            <br />
+            @Html.LabelFor(x => x.UserName, new { @style = "font-family:'Open sans'" })
+            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.UserName)
+            <br />
+            @Html.LabelFor(x => x.Password, new { @style = "font-family:'Open sans'" })
+            @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Password)
+            <br />
+            @Html.LabelFor(x => x.PasswordMatch, new { @style = "font-family:'Open sans'" })
+            @Html.PasswordFor(x => x.PasswordMatch, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.PasswordMatch)
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(x => x.Age, new { @style = "font-family:'Open sans'" })
+            @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Age)
+            <br />
+            @Html.LabelFor(x => x.Sex, new { @style = "font-family:'Open sans'" })
+            @Html.DropDownListFor(x => x.Sex, new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Man", Value = "true"},
+                new SelectListItem {Text = "Kvinna", Value = "false"}
+            }, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Sex)
+            <br />
+            @Html.LabelFor(x => x.InterestedMen, new { @style = "font-family:'Open sans'" })
+            @Html.DropDownListFor(x => x.InterestedMen, new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Yes", Value = "true"},
+                new SelectListItem {Text = "No", Value = "false"}
+            }, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.InterestedMen)
+            <br />
+            @Html.LabelFor(x => x.InterestedWomen, new { @style = "font-family:'Open sans'" })
+            @Html.DropDownListFor(x => x.InterestedWomen, new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Yes", Value = "true"},
+                new SelectListItem {Text = "No", Value = "false"}
+            }, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.InterestedWomen)
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(x => x.Description, new { @style = "font-family:'Open sans'" })
+            @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @rows = 17 })
+            @Html.ValidationMessageFor(x => x.Description)
+        </div>
+    </div>
+    <br />
+    <div class="col-md-3" id="knappRegister">
+        <input class="btn btn-info" type="submit" value="Update profile"/>
+    </div>
+
+}
