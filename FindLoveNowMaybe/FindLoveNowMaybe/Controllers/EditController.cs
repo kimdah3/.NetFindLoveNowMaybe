@@ -37,7 +37,8 @@ namespace FindLoveNowMaybe.Controllers
             activeUser.Sex = model.Sex;
             activeUser.InterestedMen = model.InterestedMen;
             activeUser.InterestedWomen = model.InterestedWomen;
-            
+
+            var currentUser = User.Identity.Name;
 
             using (var userRepository = new UserRepository())
             {
@@ -47,7 +48,7 @@ namespace FindLoveNowMaybe.Controllers
                     return View();
                 }
                 var editRepository = new EditRepository();
-                editRepository.UpdatePerson(model, activeUser);
+                editRepository.UpdatePerson(currentUser, activeUser);
                 userRepository.Save();
             }
             FormsAuthentication.SetAuthCookie(model.UserName, false);
