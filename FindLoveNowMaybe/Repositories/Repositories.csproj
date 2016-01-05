@@ -51,40 +51,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs">
+      <DependentUpon>FindLoveNowMaybeDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="EditRepository.cs" />
-    <Compile Include="FindLoveDbModel.Context.cs">
+    <Compile Include="FindLoveNowMaybeDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FindLoveDbModel.Context.tt</DependentUpon>
+      <DependentUpon>FindLoveNowMaybeDb.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="FindLoveDbModel.cs">
+    <Compile Include="FindLoveNowMaybeDb.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FindLoveDbModel.tt</DependentUpon>
+      <DependentUpon>FindLoveNowMaybeDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="FindLoveDbModel.Designer.cs">
+    <Compile Include="FindLoveNowMaybeDb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FindLoveDbModel.edmx</DependentUpon>
+      <DependentUpon>FindLoveNowMaybeDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Friend.cs">
+      <DependentUpon>FindLoveNowMaybeDb.tt</DependentUpon>
     </Compile>
     <Compile Include="FriendReqRepository.cs" />
     <Compile Include="Message.cs">
-      <DependentUpon>FindLoveDbModel.tt</DependentUpon>
+      <DependentUpon>FindLoveNowMaybeDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs">
-      <DependentUpon>FindLoveDbModel.tt</DependentUpon>
+      <DependentUpon>FindLoveNowMaybeDb.tt</DependentUpon>
     </Compile>
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="FindLoveDbModel.edmx">
+    <EntityDeploy Include="FindLoveNowMaybeDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FindLoveDbModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>FindLoveNowMaybeDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="FindLoveDbModel.edmx.diagram">
-      <DependentUpon>FindLoveDbModel.edmx</DependentUpon>
+    <None Include="FindLoveNowMaybeDb.edmx.diagram">
+      <DependentUpon>FindLoveNowMaybeDb.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -92,15 +98,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FindLoveDbModel.Context.tt">
+    <Content Include="FindLoveNowMaybeDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FindLoveDbModel.edmx</DependentUpon>
-      <LastGenOutput>FindLoveDbModel.Context.cs</LastGenOutput>
+      <DependentUpon>FindLoveNowMaybeDb.edmx</DependentUpon>
+      <LastGenOutput>FindLoveNowMaybeDb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="FindLoveDbModel.tt">
+    <Content Include="FindLoveNowMaybeDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FindLoveDbModel.edmx</DependentUpon>
-      <LastGenOutput>FindLoveDbModel.cs</LastGenOutput>
+      <DependentUpon>FindLoveNowMaybeDb.edmx</DependentUpon>
+      <LastGenOutput>FindLoveNowMaybeDb.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

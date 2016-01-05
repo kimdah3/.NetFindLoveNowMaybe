@@ -12,11 +12,11 @@ namespace Repositories
     using System;
     using System.Collections.Generic;
     
-    public partial class Message
+    public partial class Category
     {
         public int Id { get; set; }
-        public int SenderId { get; set; }
-        public int ReceiverId { get; set; }
-        public string Message1 { get; set; }
+        public int ActiveUserId { get; set; }
+        public int FriendId { get; set; }
+        public string Category1 { get; set; }
     }
 }

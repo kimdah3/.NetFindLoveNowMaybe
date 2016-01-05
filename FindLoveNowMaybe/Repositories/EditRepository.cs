@@ -8,7 +8,7 @@ namespace Repositories
 {
     public class EditRepository
     {
-
+        
         public void UpdatePerson(string currentUser, User person)
         {
             using (var FindLoveDb = new FindLoveDbEntities())

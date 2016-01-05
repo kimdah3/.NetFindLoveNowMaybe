@@ -18,3 +18,13 @@ C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Reposito
 C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
 C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.dll
 C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.pdb
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.dll
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.pdb
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\Repositories.dll.config
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\Repositories.dll
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\Repositories.pdb
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.dll
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.xml
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.SqlServer.xml

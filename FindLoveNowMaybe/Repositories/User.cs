@@ -17,10 +17,8 @@ namespace Repositories
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.SentFriend = new HashSet<User>();
-            this.ReceivedFriend = new HashSet<User>();
-            this.SentFriendRequest = new HashSet<User>();
-            this.ReceivedFriendRequest = new HashSet<User>();
+            this.Friend = new HashSet<Friend>();
+            this.Friend1 = new HashSet<Friend>();
         }
     
         public int Id { get; set; }
@@ -34,14 +32,11 @@ namespace Repositories
         public bool Sex { get; set; }
         public bool InterestedMen { get; set; }
         public bool InterestedWomen { get; set; }
+        public bool Visible { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> SentFriend { get; set; }
+        public virtual ICollection<Friend> Friend { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> ReceivedFriend { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> SentFriendRequest { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> ReceivedFriendRequest { get; set; }
+        public virtual ICollection<Friend> Friend1 { get; set; }
     }
 }

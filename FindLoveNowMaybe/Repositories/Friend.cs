@@ -12,11 +12,13 @@ namespace Repositories
     using System;
     using System.Collections.Generic;
     
-    public partial class Message
+    public partial class Friend
     {
-        public int Id { get; set; }
         public int SenderId { get; set; }
         public int ReceiverId { get; set; }
-        public string Message1 { get; set; }
+        public bool Accepted { get; set; }
+    
+        public virtual User User { get; set; }
+        public virtual User User1 { get; set; }
     }
 }

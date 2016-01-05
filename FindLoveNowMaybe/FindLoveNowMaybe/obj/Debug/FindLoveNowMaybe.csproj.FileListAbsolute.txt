@@ -109,3 +109,9 @@ C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLove
 C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\obj\Debug\FindLoveNowMaybe.csprojResolveAssemblyReference.cache
 C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\obj\Debug\FindLoveNowMaybe.dll
 C:\Users\Christoffer\Source\Repos\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\obj\Debug\FindLoveNowMaybe.pdb
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\EntityFramework.dll
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\EntityFramework.SqlServer.dll
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\Repositories.dll
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\Repositories.pdb
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\EntityFramework.xml
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\EntityFramework.SqlServer.xml

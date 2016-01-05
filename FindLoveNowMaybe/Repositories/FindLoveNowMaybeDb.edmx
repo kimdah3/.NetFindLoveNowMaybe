@@ -4,7 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FindLoveDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FindLoveDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActiveUserId" Type="int" Nullable="false" />
+          <Property Name="FriendId" Type="int" Nullable="false" />
+          <Property Name="Category" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="Friend">
           <Key>
             <PropertyRef Name="SenderId" />
@@ -12,14 +21,7 @@
           </Key>
           <Property Name="SenderId" Type="int" Nullable="false" />
           <Property Name="ReceiverId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="FriendRequest">
-          <Key>
-            <PropertyRef Name="FRequestSenderId" />
-            <PropertyRef Name="FRequestReceiverId" />
-          </Key>
-          <Property Name="FRequestSenderId" Type="int" Nullable="false" />
-          <Property Name="FRequestReceiverId" Type="int" Nullable="false" />
+          <Property Name="Accepted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Message">
           <Key>
@@ -45,6 +47,7 @@
           <Property Name="Sex" Type="bit" Nullable="false" />
           <Property Name="InterestedMen" Type="bit" Nullable="false" />
           <Property Name="InterestedWomen" Type="bit" Nullable="false" />
+          <Property Name="Visible" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK__Friend__Receiver__4CA06362">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -70,33 +73,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__FriendReq__FRequ__49C3F6B7">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="FriendRequest" Type="Self.FriendRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="FriendRequest">
-              <PropertyRef Name="FRequestSenderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__FriendReq__FRequ__4AB81AF0">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="FriendRequest" Type="Self.FriendRequest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="FriendRequest">
-              <PropertyRef Name="FRequestReceiverId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="FindLoveDbModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Friend" EntityType="Self.Friend" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FriendRequest" EntityType="Self.FriendRequest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Friend__Receiver__4CA06362" Association="Self.FK__Friend__Receiver__4CA06362">
@@ -107,20 +86,22 @@
             <End Role="User" EntitySet="User" />
             <End Role="Friend" EntitySet="Friend" />
           </AssociationSet>
-          <AssociationSet Name="FK__FriendReq__FRequ__49C3F6B7" Association="Self.FK__FriendReq__FRequ__49C3F6B7">
-            <End Role="User" EntitySet="User" />
-            <End Role="FriendRequest" EntitySet="FriendRequest" />
-          </AssociationSet>
-          <AssociationSet Name="FK__FriendReq__FRequ__4AB81AF0" Association="Self.FK__FriendReq__FRequ__4AB81AF0">
-            <End Role="User" EntitySet="User" />
-            <End Role="FriendRequest" EntitySet="FriendRequest" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FindLoveDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Friend">
+          <Key>
+            <PropertyRef Name="SenderId" />
+            <PropertyRef Name="ReceiverId" />
+          </Key>
+          <Property Name="SenderId" Type="Int32" Nullable="false" />
+          <Property Name="ReceiverId" Type="Int32" Nullable="false" />
+          <Property Name="Accepted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Friend__Receiver__4CA06362" FromRole="Friend" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK__Friend__SenderId__4BAC3F29" FromRole="Friend" ToRole="User" />
+        </EntityType>
         <EntityType Name="Message">
           <Key>
             <PropertyRef Name="Id" />
@@ -128,7 +109,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SenderId" Type="Int32" Nullable="false" />
           <Property Name="ReceiverId" Type="Int32" Nullable="false" />
-          <Property Name="MessageText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Message1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -145,50 +126,86 @@
           <Property Name="Sex" Type="Boolean" Nullable="false" />
           <Property Name="InterestedMen" Type="Boolean" Nullable="false" />
           <Property Name="InterestedWomen" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="SentFriend" Relationship="Self.Friend" FromRole="User" ToRole="User1" />
-          <NavigationProperty Name="ReceivedFriend" Relationship="Self.Friend" FromRole="User1" ToRole="User" />
-          <NavigationProperty Name="SentFriendRequest" Relationship="Self.FriendRequest" FromRole="User" ToRole="User1" />
-          <NavigationProperty Name="ReceivedFriendRequest" Relationship="Self.FriendRequest" FromRole="User1" ToRole="User" />
+          <NavigationProperty Name="Friend" Relationship="Self.FK__Friend__Receiver__4CA06362" FromRole="User" ToRole="Friend" />
+          <NavigationProperty Name="Friend1" Relationship="Self.FK__Friend__SenderId__4BAC3F29" FromRole="User" ToRole="Friend" />
+          <Property Name="Visible" Type="Boolean" Nullable="false" />
         </EntityType>
-        <Association Name="Friend">
-          <End Role="User" Type="Self.User" Multiplicity="*" />
-          <End Role="User1" Type="Self.User" Multiplicity="*" />
+        <Association Name="FK__Friend__Receiver__4CA06362">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Friend" Type="Self.Friend" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Friend">
+              <PropertyRef Name="ReceiverId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <Association Name="FriendRequest">
-          <End Role="User" Type="Self.User" Multiplicity="*" />
-          <End Role="User1" Type="Self.User" Multiplicity="*" />
+        <Association Name="FK__Friend__SenderId__4BAC3F29">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Friend" Type="Self.Friend" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Friend">
+              <PropertyRef Name="SenderId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <EntityContainer Name="FindLoveDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Friend" EntityType="Self.Friend" />
           <EntitySet Name="Message" EntityType="Self.Message" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="Friend" Association="Self.Friend">
+          <AssociationSet Name="FK__Friend__Receiver__4CA06362" Association="Self.FK__Friend__Receiver__4CA06362">
             <End Role="User" EntitySet="User" />
-            <End Role="User1" EntitySet="User" />
+            <End Role="Friend" EntitySet="Friend" />
           </AssociationSet>
-          <AssociationSet Name="FriendRequest" Association="Self.FriendRequest">
+          <AssociationSet Name="FK__Friend__SenderId__4BAC3F29" Association="Self.FK__Friend__SenderId__4BAC3F29">
             <End Role="User" EntitySet="User" />
-            <End Role="User1" EntitySet="User" />
+            <End Role="Friend" EntitySet="Friend" />
           </AssociationSet>
+          <EntitySet Name="Category" EntityType="FindLoveDbModel.Category" />
         </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActiveUserId" Type="Int32" Nullable="false" />
+          <Property Name="FriendId" Type="Int32" Nullable="false" />
+          <Property Name="Category1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="FindLoveDbModelStoreContainer" CdmEntityContainer="FindLoveDbEntities">
+          <EntitySetMapping Name="Friend">
+            <EntityTypeMapping TypeName="FindLoveDbModel.Friend">
+              <MappingFragment StoreEntitySet="Friend">
+                <ScalarProperty Name="SenderId" ColumnName="SenderId" />
+                <ScalarProperty Name="ReceiverId" ColumnName="ReceiverId" />
+                <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Message">
             <EntityTypeMapping TypeName="FindLoveDbModel.Message">
               <MappingFragment StoreEntitySet="Message">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SenderId" ColumnName="SenderId" />
                 <ScalarProperty Name="ReceiverId" ColumnName="ReceiverId" />
-                <ScalarProperty Name="MessageText" ColumnName="Message" />
+                <ScalarProperty Name="Message1" ColumnName="Message" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="FindLoveDbModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -203,22 +220,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Friend" TypeName="FindLoveDbModel.Friend" StoreEntitySet="Friend">
-            <EndProperty Name="User">
-              <ScalarProperty Name="Id" ColumnName="ReceiverId" />
-            </EndProperty>
-            <EndProperty Name="User1">
-              <ScalarProperty Name="Id" ColumnName="SenderId" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FriendRequest" TypeName="FindLoveDbModel.FriendRequest" StoreEntitySet="FriendRequest">
-            <EndProperty Name="User">
-              <ScalarProperty Name="Id" ColumnName="FRequestSenderId" />
-            </EndProperty>
-            <EndProperty Name="User1">
-              <ScalarProperty Name="Id" ColumnName="FRequestReceiverId" />
-            </EndProperty>
-          </AssociationSetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="FindLoveDbModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Category1" ColumnName="Category" />
+                <ScalarProperty Name="FriendId" ColumnName="FriendId" />
+                <ScalarProperty Name="ActiveUserId" ColumnName="ActiveUserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

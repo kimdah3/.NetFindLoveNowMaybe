@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Repositories
-{
+{/*
     public static void SendFriendRequest(User sender, User Reciever)
     {
         Reciever.SentFriendRequest.Add(sender);
@@ -18,5 +18,5 @@ namespace Repositories
             db.FriendRequest.Add(friendReq);
             db.SaveChanges();
         }
-    }
+    }*/
 }
