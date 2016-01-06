@@ -73,6 +73,7 @@
     <Compile Include="Friend.cs">
       <DependentUpon>FindLoveNowMaybeDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="FriendRepositories.cs" />
     <Compile Include="FriendReqRepository.cs" />
     <Compile Include="Message.cs">
       <DependentUpon>FindLoveNowMaybeDb.tt</DependentUpon>
