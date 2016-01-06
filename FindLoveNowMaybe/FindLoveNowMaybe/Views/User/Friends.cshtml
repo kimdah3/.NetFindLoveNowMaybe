@@ -1,0 +1,17 @@
+﻿@model FindLoveNowMaybe.Models.FriendsModel
+@{
+    ViewBag.Title = "Friends";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+ <h2>Friends list</h2>
+ <br/>
+<div class="container">
+    @foreach (var friend in Model)
+    {
+        {
+            <li id="FriendsDiv"> @Html.ActionLink(@friend.UserName, "Profile", "User", null, new { @class = "form-control", @style = "font-family: 'Oswald'" }) </li>
+        }
+    }
+
+</div>

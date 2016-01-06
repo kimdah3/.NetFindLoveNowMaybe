@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    class FriendRepositories
+    public class FriendRepositories
     {
 
         public static List<User> ReturnAllFriends(User ActiveUser)
@@ -19,18 +19,20 @@ namespace Repositories
                              where r.ReceiverId == ActiveUser.Id || r.SenderId == ActiveUser.Id && r.Accepted == true
                              select r;
                 var UserRep = new UserRepository();
-                foreach(var item in result)
+            
+            foreach (var item in result)
                 {
                     if(item.ReceiverId == ActiveUser.Id)
                     {
-                        returnList.Add(UserRep.GetUserById(item.ReceiverId));
+                        returnList.Add(UserRep.GetUserById(item.SenderId));
                     }
                     else
                     {
-                        returnList.Add(UserRep.GetUserById(item.SenderId));
+                        returnList.Add(UserRep.GetUserById(item.ReceiverId));
                     }
                 }
             }
+
             return returnList;
 
         }

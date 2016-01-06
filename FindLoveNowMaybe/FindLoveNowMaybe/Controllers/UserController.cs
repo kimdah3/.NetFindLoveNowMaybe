@@ -34,5 +34,27 @@ namespace FindLoveNowMaybe.Controllers
             }
             return View(model);
         }
+
+        public ActionResult Friends(string username)
+        {
+            var model = new FriendsModel();
+            if (!User.Identity.Name.Equals(""))
+            {
+               
+                var currentuser = new UserRepository();
+
+                var userRep = new UserRepository();
+                var allFriends = FriendRepositories.ReturnAllFriends(userRep.GetUserByUserName("Linus"));
+
+                foreach (var i in allFriends) //loopar och hämtar namn och bild på varje vän 
+                {
+                    model.Add(i);
+                    
+                }
+            }
+            return View(model);
+
+        }
+
     }
 }
