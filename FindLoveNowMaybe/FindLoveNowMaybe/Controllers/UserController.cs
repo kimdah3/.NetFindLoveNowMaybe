@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
 using FindLoveNowMaybe.Models;
@@ -56,5 +57,20 @@ namespace FindLoveNowMaybe.Controllers
 
         }
 
+        public ActionResult FriendRequest()
+        {
+            var model = new FriendRequestModel();
+            var userRep = new UserRepository();
+            var allFriendRequests = FriendReqRepository.returnAllPendingRequestUsers(userRep.GetUserByUserName("Linus"));
+
+            foreach (var i in allFriendRequests)
+            {
+                model.Add(i);
+            }
+
+            return View(model);
+        }
     }
+
+   
 }

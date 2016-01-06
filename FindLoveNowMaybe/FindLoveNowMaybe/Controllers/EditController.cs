@@ -16,7 +16,7 @@ namespace FindLoveNowMaybe.Controllers
         [HttpGet]
         public ActionResult EditUser()
         {
-            return View(new EditModel());
+                return View(new EditModel());
         }
 
         [HttpPost]           
@@ -54,6 +54,8 @@ namespace FindLoveNowMaybe.Controllers
             FormsAuthentication.SetAuthCookie(model.UserName, false);
             return RedirectToAction("Index", "Account");
         }
+
+       
     }
 }
 

@@ -130,12 +130,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EditModel.cs" />
+    <Compile Include="Models\FriendRequestModel.cs" />
     <Compile Include="Models\FriendsModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Models\VisitPersonModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +154,7 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Edit\EditUser.cshtml" />
     <Content Include="Views\User\Friends.cshtml" />
+    <Content Include="Views\User\FriendRequest.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

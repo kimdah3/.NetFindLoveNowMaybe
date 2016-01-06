@@ -1,0 +1,18 @@
+﻿@model FindLoveNowMaybe.Models.FriendRequestModel
+@{
+    ViewBag.Title = "FriendRequest";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Friend Request</h2>
+
+<br />
+<div class="container" id="friendRequest">
+    @foreach (var friendReq in Model)
+    {
+        {
+            <li id="FriendsDiv">  @friendReq.UserName <a href="#" class="btn btn-info">Accept</a> <a href="#" class="btn btn-danger">Decline</a></li>
+        }
+    }
+
+</div>
