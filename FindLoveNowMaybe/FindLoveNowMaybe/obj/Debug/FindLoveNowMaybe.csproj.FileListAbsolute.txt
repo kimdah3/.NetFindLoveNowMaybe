@@ -115,3 +115,11 @@ C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNow
 C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\Repositories.pdb
 C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\EntityFramework.xml
 C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\EntityFramework.SqlServer.xml
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\Newtonsoft.Json.dll
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\System.Net.Http.Formatting.dll
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\System.Web.Http.dll
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\System.Web.Http.WebHost.dll
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\Newtonsoft.Json.xml
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\System.Net.Http.Formatting.xml
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\System.Web.Http.xml
+C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe\bin\System.Web.Http.WebHost.xml
