@@ -40,27 +40,22 @@ h1,h2,h3,h4,h5,h6 {
 
 
 #friendRequest {
-    
+ 
     margin-bottom: 50px !important;
 }
 
-#writtenPost {
-    text-align: center;
-}
 
 #minEgnaDiv {
     text-align: center !important;
     margin-top: 50px;
 }
 
-#hej {
-    margin: auto;
-    
+#textAreaMiddle{
+    margin: auto; 
 }
 
 #textAreaId {
-    margin-bottom: 20px !important;
-    
+    margin-bottom: 20px !important;    
 }
 .col-centered{
     float: none;
