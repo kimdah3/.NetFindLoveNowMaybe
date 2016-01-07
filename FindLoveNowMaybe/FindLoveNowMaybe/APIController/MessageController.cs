@@ -31,7 +31,10 @@ namespace FindLoveNowMaybe.APIController
         [HttpPost]
         public void PostMessage(string RecieverUsername, string Message)
         {
+            var userRepo = new Repositories.UserRepository();
+            Repositories.MessageRepository.AddNewMessage(userRepo.GetUserByUserName(User.Identity.Name), userRepo.GetUserByUserName(RecieverUsername).Id, Message);
 
+           
         }
     }
 }
