@@ -71,6 +71,17 @@ namespace FindLoveNowMaybe.Controllers
 
             return View(model);
         }
+
+        public ActionResult IndexUser()
+        {
+            var homeModel = new HomeModel();
+            using (var userRepository = new UserRepository())
+            {
+                homeModel.RandomUsers = userRepository.GetFourRandomUsers();
+            }
+
+            return View(homeModel);
+        }
     }
 
    

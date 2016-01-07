@@ -155,6 +155,7 @@
     <Content Include="Views\Edit\EditUser.cshtml" />
     <Content Include="Views\User\Friends.cshtml" />
     <Content Include="Views\User\FriendRequest.cshtml" />
+    <Content Include="Views\User\IndexUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
