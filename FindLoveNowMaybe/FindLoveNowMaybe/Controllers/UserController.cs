@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using FindLoveNowMaybe.Models;
 using Repositories;
 
@@ -45,7 +46,7 @@ namespace FindLoveNowMaybe.Controllers
                 var currentuser = new UserRepository();
 
                 var userRep = new UserRepository();
-                var allFriends = FriendRepositories.ReturnAllFriends(userRep.GetUserByUserName("Linus"));
+                var allFriends = FriendRepositories.ReturnAllFriends(userRep.GetUserByUserName(User.Identity.Name));
 
                 foreach (var i in allFriends) //loopar och hämtar namn och bild på varje vän 
                 {
@@ -61,8 +62,8 @@ namespace FindLoveNowMaybe.Controllers
         {
             var model = new FriendRequestModel();
             var userRep = new UserRepository();
-            var allFriendRequests = FriendReqRepository.returnAllPendingRequestUsers(userRep.GetUserByUserName("Linus"));
-
+            var allFriendRequests = FriendReqRepository.returnAllPendingRequestUsers(userRep.GetUserByUserName(User.Identity.Name));
+            
             foreach (var i in allFriendRequests)
             {
                 model.Add(i);
