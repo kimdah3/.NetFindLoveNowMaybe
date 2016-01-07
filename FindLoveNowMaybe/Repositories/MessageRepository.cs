@@ -6,9 +6,22 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    class MessageRepository
+    public class MessageRepository
     {
-        public static void SendMessage(User sender, User reciever, String Message)
+        public static List<Message> GetAllPostsForUser(User ActiveUser)
+        {
+            var returnList = new List<Message>();
+
+            using (var db = new FindLoveDbEntities())
+            {
+                var result = from i in db.Message
+                             where i.ReceiverId == ActiveUser.Id
+                             select i;
+                return result.ToList();
+            }
+        }
+
+        public static void AddNewPost(User Reciever, String Message)
         {
 
         }

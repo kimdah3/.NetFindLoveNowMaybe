@@ -15,7 +15,7 @@ namespace FindLoveNowMaybe.APIController
             var userRepo = new Repositories.UserRepository();
             
             var modelList = new Models.MessageListModel();
-            var allMessages = Repositories.Repos.MessageRepository.GetAllPostsForUser(userRepo.GetUserByUserName(ActiveUser));
+            var allMessages = Repositories.MessageRepository.GetAllPostsForUser(userRepo.GetUserByUserName(ActiveUser));
 
             foreach(var m in allMessages)
             {
