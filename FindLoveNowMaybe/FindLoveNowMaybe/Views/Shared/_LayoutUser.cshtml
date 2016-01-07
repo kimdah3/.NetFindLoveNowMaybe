@@ -41,6 +41,7 @@
                     <li>@Html.ActionLink("Edit", "EditUser", "Edit")</li>
                     <li>@Html.ActionLink("Friends", "Friends", "User") </li>
                     <li>@Html.ActionLink("Friend Requests ", "FriendRequest", "User", null, new {@class = "badge"}) </li>
+                    <li>@Html.ActionLink("Profile", "Profile", "User", null, new {username = User.Identity.Name}) </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Log out", "Index", "Home")</li>
