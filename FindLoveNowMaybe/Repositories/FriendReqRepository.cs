@@ -57,6 +57,25 @@ namespace Repositories
                 db.SaveChanges();
             }
         }
+
+        public static void AcceptOrDenyRequests(int sender, int reciever, bool accepted)
+        {
+            using (var db = new FindLoveDbEntities())
+            {
+                var currentRequest = db.Friend.FirstOrDefault(x => x.ReceiverId == reciever && x.SenderId == sender);
+
+                if (accepted)
+                {
+                    currentRequest.Accepted = true;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    db.Friend.Remove(currentRequest);
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }
 
