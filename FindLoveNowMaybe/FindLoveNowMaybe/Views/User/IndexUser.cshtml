@@ -11,7 +11,7 @@
     <div class="jumbotron text-center">
         <h1>Find Love Now Maybe</h1>
         <p>Welcome lover</p>
-        @Html.ActionLink("Go to profile", "Profile", "User", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Go to profile", "Profile", "User", new {username = User.Identity.Name}, new { @class = "btn btn-primary" })
 
     </div>
 </div>
