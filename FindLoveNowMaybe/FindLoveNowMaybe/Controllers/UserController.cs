@@ -42,7 +42,7 @@ namespace FindLoveNowMaybe.Controllers
             var model = new FriendsModel();
             if (!User.Identity.Name.Equals(""))
             {
-               
+
                 var currentuser = new UserRepository();
 
                 var userRep = new UserRepository();
@@ -51,7 +51,7 @@ namespace FindLoveNowMaybe.Controllers
                 foreach (var i in allFriends) //loopar och hämtar namn och bild på varje vän 
                 {
                     model.Add(i);
-                    
+
                 }
             }
             return View(model);
@@ -62,12 +62,18 @@ namespace FindLoveNowMaybe.Controllers
         {
             var model = new FriendRequestModel();
             var userRep = new UserRepository();
-            model.FriendReqs =
-                FriendReqRepository.returnAllPendingRequestsByUser(userRep.GetUserByUserName(User.Identity.Name));
+
+            using (var friendReqRepository = new FriendReqRepository())
+            {
+                model.FriendReqs =
+                    friendReqRepository.returnAllPendingRequestsByUser(userRep.GetUserByUserName(User.Identity.Name));
+
+            }
+
 
             //var allFriendRequests = FriendReqRepository.returnAllPendingRequestUsers(userRep.GetUserByUserName(User.Identity.Name));
 
-            //foreach (var i in allFriendRequests)
+            //foreach (var i in allFriendRequests)  
             //{
             //    model.Add(i);
             //}
@@ -109,17 +115,23 @@ namespace FindLoveNowMaybe.Controllers
 
         public ActionResult AcceptRequest(int sender, int receiver)
         {
-            FriendReqRepository.AcceptOrDenyRequests(sender, receiver, true);
+            using (var friendReqRepository = new FriendReqRepository())
+            {
+                friendReqRepository.AcceptOrDenyRequests(sender, receiver, true);
+            }
             return RedirectToAction("FriendRequest");
         }
 
         public ActionResult DeclineRequest(int sender, int receiver)
         {
-            FriendReqRepository.AcceptOrDenyRequests(sender, receiver, false);
+            using (var friendReqRepository = new FriendReqRepository())
+            {
+                friendReqRepository.AcceptOrDenyRequests(sender, receiver, false);
+            }
             return RedirectToAction("FriendRequest");
         }
 
     }
 
-   
+
 }

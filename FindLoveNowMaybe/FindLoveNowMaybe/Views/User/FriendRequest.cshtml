@@ -12,7 +12,7 @@
     {
 
         <li id="FriendsDiv">
-            @friendReq.SenderId,
+            @friendReq.SenderUser.FirstName,
             @Html.ActionLink("Accept", "AcceptRequest", "User", new { receiver = friendReq.ReceiverId, sender = friendReq.SenderId }, new { @class = "btn btn-info" })
             @Html.ActionLink("Decline", "DeclineRequest", "User", new { receiver = friendReq.ReceiverId, sender = friendReq.SenderId }, new { @class = "btn btn-danger" })
         </li>

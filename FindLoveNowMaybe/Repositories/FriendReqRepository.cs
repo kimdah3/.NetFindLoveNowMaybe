@@ -1,38 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Repositories
 {
-    public class FriendReqRepository
+    public class FriendReqRepository : IDisposable
     {
-        public static bool CheckActiveFriendRequests(User ActiveUser)
+        public FindLoveDbEntities Context { get; set; }
+
+        public FriendReqRepository()
+        {
+            Context = new FindLoveDbEntities();
+        }
+
+        public bool CheckActiveFriendRequests(User ActiveUser)
         {
             var friendList = new List<Friend>();
-            using (var db = new FindLoveDbEntities())
+            var result = from r in Context.Friend
+                         where r.SenderId == ActiveUser.Id && r.Accepted == false
+                         select r;
+            foreach (var item in result)
             {
-                var result = from r in db.Friend
-                    where r.SenderId == ActiveUser.Id && r.Accepted == false
-                    select r;
-                foreach (var item in result)
-                {
-                    friendList.Add(item);
-                }
-                var returnboolean = friendList.Count > 0;
-                return returnboolean;
+                friendList.Add(item);
             }
+            var returnboolean = friendList.Count > 0;
+            return returnboolean;
 
         }
 
-        public static List<User> returnAllPendingRequestUsers(User ActiveUser)
+        public List<User> returnAllPendingRequestUsers(User ActiveUser)
         {
             var returnList = new List<User>();
             using (var db = new FindLoveDbEntities())
             {
-                var result = from r in db.Friend
+                var result = from r in Context.Friend
                              where r.ReceiverId == ActiveUser.Id && r.Accepted == false
                              select r;
                 var UserRep = new UserRepository();
@@ -44,50 +49,47 @@ namespace Repositories
             return returnList;
         }
 
-        public static List<Friend> returnAllPendingRequestsByUser(User ActiveUser)
+        public List<Friend> returnAllPendingRequestsByUser(User ActiveUser)
         {
-            using (var context = new FindLoveDbEntities())
-            {
-                var result = from f in context.Friend
-                    where f.ReceiverId == ActiveUser.Id
-                          && f.Accepted == false
-                    select f;
+            
+            var result = from f in Context.Friend.Include("SenderUser")
+                         where f.ReceiverId == ActiveUser.Id
+                               && f.Accepted == false
+                         select f;
 
-                return result.ToList();
-            }
+            return result.ToList();
         }
 
-        public static void SendFriendRequest(User sender, User Reciever)
+        public void SendFriendRequest(User sender, User Reciever)
         {
 
             var friendReq = new Friend();
             friendReq.SenderId = sender.Id;
             friendReq.ReceiverId = Reciever.Id;
             friendReq.Accepted = false;
-            using (var db = new FindLoveDbEntities())
+            Context.Friend.Add(friendReq);
+            Context.SaveChanges();
+        }
+
+        public void AcceptOrDenyRequests(int sender, int receiver, bool accepted)
+        {
+            var currentRequest = Context.Friend.FirstOrDefault(x => x.ReceiverId == receiver && x.SenderId == sender);
+
+            if (accepted)
             {
-                db.Friend.Add(friendReq);
-                db.SaveChanges();
+                currentRequest.Accepted = true;
+                Context.SaveChanges();
+            }
+            else
+            {
+                Context.Friend.Remove(currentRequest);
+                Context.SaveChanges();
             }
         }
 
-        public static void AcceptOrDenyRequests(int sender, int receiver, bool accepted)
+        public void Dispose()
         {
-            using (var db = new FindLoveDbEntities())
-            {
-                var currentRequest = db.Friend.FirstOrDefault(x => x.ReceiverId == receiver && x.SenderId == sender);
-
-                if (accepted)
-                {
-                    currentRequest.Accepted = true;
-                    db.SaveChanges();
-                }
-                else
-                {
-                    db.Friend.Remove(currentRequest);
-                    db.SaveChanges();
-                }
-            }
+            Context.Dispose();
         }
     }
 }

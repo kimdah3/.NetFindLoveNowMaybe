@@ -18,7 +18,7 @@ namespace Repositories
         public int ReceiverId { get; set; }
         public bool Accepted { get; set; }
     
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
+        public virtual User ReceiverUser { get; set; }
+        public virtual User SenderUser { get; set; }
     }
 }

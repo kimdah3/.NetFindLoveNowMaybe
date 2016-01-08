@@ -99,8 +99,8 @@
           <Property Name="SenderId" Type="Int32" Nullable="false" />
           <Property Name="ReceiverId" Type="Int32" Nullable="false" />
           <Property Name="Accepted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Friend__Receiver__4CA06362" FromRole="Friend" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="Self.FK__Friend__SenderId__4BAC3F29" FromRole="Friend" ToRole="User" />
+          <NavigationProperty Name="ReceiverUser" Relationship="Self.FK__Friend__Receiver__4CA06362" FromRole="Friend" ToRole="User" />
+          <NavigationProperty Name="SenderUser" Relationship="Self.FK__Friend__SenderId__4BAC3F29" FromRole="Friend" ToRole="User" />
         </EntityType>
         <EntityType Name="Message">
           <Key>
