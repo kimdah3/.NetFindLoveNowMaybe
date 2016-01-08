@@ -32,13 +32,23 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-left">
-                    <li>@Html.ActionLink("Profile", "Profile", "User", new { username = User.Identity.Name }, null) </li>
+                    <li>@Html.ActionLink("Profile", "Profile", "User", new {username = User.Identity.Name}, null) </li>
                     <li>@Html.ActionLink("Edit", "EditUser", "Edit")</li>
                     <li>@Html.ActionLink("Friends", "Friends", "User") </li>
                     <li>@Html.ActionLink("Friend Requests", "FriendRequest", "User") </li>
                     <li>@Html.ActionLink("Search", "Search", "Search") </li>
-                    <li>@Html.TextBox("search", new {@class = "form-control"})</li>
                 </ul>
+
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+
+                    </button>
+                </form>
+
                 <ul class="nav navbar-nav navbar-right">
                  
                     <li>@Html.ActionLink("Log out", "Index", "Home")</li>
