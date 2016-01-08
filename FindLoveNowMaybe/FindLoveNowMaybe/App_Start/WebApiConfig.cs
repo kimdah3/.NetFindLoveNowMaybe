@@ -13,7 +13,7 @@ namespace FindLoveNowMaybe
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "APIController/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }

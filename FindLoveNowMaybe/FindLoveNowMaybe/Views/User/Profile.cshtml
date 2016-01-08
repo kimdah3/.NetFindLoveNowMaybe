@@ -10,44 +10,44 @@
 
 <div class="row">
 
-  
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail">
 
-                <img src="~/Content/Images/@Model.Picture" class="img-rounded" alt="hej">
-                <br />
-                <p>Description: @Model.Description</p>
+    <div class="col-md-3 col-sm-6 hero-feature">
+        <div class="thumbnail">
 
-                <a href="/home/register" class="btn btn-info">Change picture</a>
-            </div>
+            <img src="~/Content/Images/@Model.Picture" class="img-rounded" alt="hej">
             <br />
+            <p>Description: @Model.Description</p>
 
-
+            <a href="/home/register" class="btn btn-info">Change picture</a>
         </div>
-        <div class="col-md-3">
-            <p>Username: @Model.UserName</p>
+        <br />
 
-            <p>Age: @Model.Age</p>
-            <p>Picture: @Model.Picture</p>
-            <p>Sex: @Model.Sex</p>
-            <p>Age: @Model.Age</p>
-            <p>Interested in men: @Model.InterestedMen</p>
-            <p>Interested in women: @Model.InterestedWomen</p>
-            <br />
-        </div>
 
-        
-        </div>
+    </div>
+    <div class="col-md-3">
+        <p>Username: @Model.UserName</p>
 
-<div class ="col-md-6 col-centered"id="minEgnaDiv">
+        <p>Age: @Model.Age</p>
+        <p>Picture: @Model.Picture</p>
+        <p>Sex: @Model.Sex</p>
+        <p>Age: @Model.Age</p>
+        <p>Interested in men: @Model.InterestedMen</p>
+        <p>Interested in women: @Model.InterestedWomen</p>
+        <br />
+    </div>
+
+
+</div>
+
+<div class="col-md-6 col-centered" id="minEgnaDiv">
     <div class="well">
         <h4>Write on my wall!</h4>
         <br />
 
         <div class="input-group" id="textAreaMiddle">
-            <textarea class="form-control input-sm chat-input" id ="textAreaId" rows= "8" cols="20" placeholder="Write your message here..."></textarea>
-           
-            <span onclick="addComment()">
+            <textarea class="form-control input-sm chat-input" id="textAreaId" rows="8" cols="20" placeholder="Write your message here..."></textarea>
+
+            <span>
                 <button class="btn btn-info" id="buttonAddPost">Add post</button>
             </span>
         </div>
@@ -59,4 +59,25 @@
 
         </ul>
     </div>
-</div>     
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $.get("../APIController/Message/GetMessages?ActiveUser=Linus", function (data) {
+            //alert(data);
+        });
+
+        $('#buttonAddPost').click(function () {
+            var messageText = $('#textAreaId').val();
+            var userName = '@Model.UserName';
+            console.log(messageText);
+            console.log(userName);
+            $.post("../APIController/Message/PostMessage?RecieverUsername=" + userName + "&Message=" + messageText,
+                function () {
+                    alert();
+                });
+        });
+
+    });
+</script>

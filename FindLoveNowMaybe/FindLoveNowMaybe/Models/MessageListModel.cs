@@ -8,5 +8,6 @@ namespace FindLoveNowMaybe.Models
     public class MessageListModel
     {
         public List<MessageModel> Message { get; set; }
+
     }
 }

@@ -10,8 +10,6 @@ namespace Repositories
     {
         public static List<Message> GetAllPostsForUser(User ActiveUser)
         {
-            var returnList = new List<Message>();
-
             using (var db = new FindLoveDbEntities())
             {
                 var result = from i in db.Message
