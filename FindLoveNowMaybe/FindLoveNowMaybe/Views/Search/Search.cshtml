@@ -1,0 +1,42 @@
+﻿@model FindLoveNowMaybe.Controllers.SearchModel
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-3" id="registreraID">
+            @Html.LabelFor(x => x.SearchText, new { @style = "font-family:'Open sans'" })
+            @Html.TextBoxFor(x => x.SearchText, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.SearchText)
+        </div>
+    </div>
+    <div class="col-md-3">
+        <br />
+
+        <input class="btn btn-info" type="submit" value="Search" />
+    </div>
+}
+
+<!-- fixa mellanrum med css:en, förstår inte-->
+<br />
+<br />
+<br />
+
+@if (Model.FoundUsers != null)
+{
+    <h3>@Model.FoundUsers.Count users found: </h3>
+    foreach (var foundUser in Model.FoundUsers)
+    {
+        <div>
+            <p>@foundUser.FirstName @foundUser.LastName</p>
+            <p>Username: @foundUser.UserName</p>
+            <p>Age: @foundUser.Age</p>
+            <input class="btn btn-info" type="seeProfile" value="See profile" />
+        </div>
+        <br />
+    }
+}
+

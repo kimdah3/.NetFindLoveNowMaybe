@@ -35,7 +35,8 @@
                     <li>@Html.ActionLink("Profile", "Profile", "User", new { username = User.Identity.Name }, null) </li>
                     <li>@Html.ActionLink("Edit", "EditUser", "Edit")</li>
                     <li>@Html.ActionLink("Friends", "Friends", "User") </li>
-                    <li>@Html.ActionLink("Friend Requests ", "FriendRequest", "User") </li>
+                    <li>@Html.ActionLink("Friend Requests", "FriendRequest", "User") </li>
+                    <li>@Html.ActionLink("Search", "Search", "Search") </li>
                     <li>@Html.TextBox("search", new {@class = "form-control"})</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

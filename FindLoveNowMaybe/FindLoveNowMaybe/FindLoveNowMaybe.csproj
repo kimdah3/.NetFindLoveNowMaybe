@@ -144,6 +144,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EditController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -156,6 +157,7 @@
     <Compile Include="Models\MessageListModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -177,6 +179,7 @@
     <Content Include="Views\User\Friends.cshtml" />
     <Content Include="Views\User\FriendRequest.cshtml" />
     <Content Include="Views\User\IndexUser.cshtml" />
+    <Content Include="Views\Search\Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

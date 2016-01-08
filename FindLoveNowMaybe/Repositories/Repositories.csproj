@@ -80,6 +80,7 @@
     </Compile>
     <Compile Include="MessageRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchRepository.cs" />
     <Compile Include="User.cs">
       <DependentUpon>FindLoveNowMaybeDb.tt</DependentUpon>
     </Compile>

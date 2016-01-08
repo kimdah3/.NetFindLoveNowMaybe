@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FindLoveDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Friend">
+    <Key>
+      <PropertyRef Name="SenderId" />
+      <PropertyRef Name="ReceiverId" />
+    </Key>
+    <Property Name="SenderId" Type="Int32" Nullable="false" />
+    <Property Name="ReceiverId" Type="Int32" Nullable="false" />
+    <Property Name="Accepted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Friend__Receiver__4CA06362" FromRole="Friend" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="Self.FK__Friend__SenderId__4BAC3F29" FromRole="Friend" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SenderId" Type="Int32" Nullable="false" />
+    <Property Name="ReceiverId" Type="Int32" Nullable="false" />
+    <Property Name="Message1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="Boolean" Nullable="false" />
+    <Property Name="InterestedMen" Type="Boolean" Nullable="false" />
+    <Property Name="InterestedWomen" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Friend" Relationship="Self.FK__Friend__Receiver__4CA06362" FromRole="User" ToRole="Friend" />
+    <NavigationProperty Name="Friend1" Relationship="Self.FK__Friend__SenderId__4BAC3F29" FromRole="User" ToRole="Friend" />
+    <Property Name="Visible" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Friend__Receiver__4CA06362">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Friend" Type="Self.Friend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Friend">
+        <PropertyRef Name="ReceiverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Friend__SenderId__4BAC3F29">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Friend" Type="Self.Friend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Friend">
+        <PropertyRef Name="SenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FindLoveDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Friend" EntityType="Self.Friend" />
+    <EntitySet Name="Message" EntityType="Self.Message" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK__Friend__Receiver__4CA06362" Association="Self.FK__Friend__Receiver__4CA06362">
+      <End Role="User" EntitySet="User" />
+      <End Role="Friend" EntitySet="Friend" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Friend__SenderId__4BAC3F29" Association="Self.FK__Friend__SenderId__4BAC3F29">
+      <End Role="User" EntitySet="User" />
+      <End Role="Friend" EntitySet="Friend" />
+    </AssociationSet>
+    <EntitySet Name="Category" EntityType="FindLoveDbModel.Category" />
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActiveUserId" Type="Int32" Nullable="false" />
+    <Property Name="FriendId" Type="Int32" Nullable="false" />
+    <Property Name="Category1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
