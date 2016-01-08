@@ -18,11 +18,11 @@
             <br />
             <p>Description: @Model.Description</p>
 
-            @using (Html.BeginForm("UserPicture", "Picture", FormMethod.Post, new { enctype = "multipart/form-data"}))
+            @using (Html.BeginForm("UserPicture", "Picture", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
 
                 <input name="file" type="file" />
-                    <input type="submit" value="Change Profile" />
+                <input type="submit" value="Change Profile" />
 
             }
         </div>
@@ -58,20 +58,30 @@
             </span>
         </div>
         <hr data-brackets-id="12673">
-        <ul data-brackets-id="12674" id="sortable" class="list-unstyled ui-sortable">
+        <div id="messages">
+            @*<ul data-brackets-id="12674" id="sortable" class="list-unstyled ui-sortable">
 
-            <li> Användarnamn : </li>
-            <p>meddelande : </p>
+                <li> Användarnamn : </li>
+                <p>meddelande : </p>
 
-        </ul>
+            </ul>*@
+                
+        </div>
+        
     </div>
 </div>
 
 
 <script type="text/javascript">
     $(function () {
-        $.get("../APIController/Message/GetMessages?ActiveUser=Linus", function (data) {
-            //alert(data);
+        $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
+            console.log(data);
+            $.each(data.Message, function () {
+                $('#messages').append('<p>From: ' + this.SenderFullName + '</p>');
+                $('#messages').append('<p>Message:' + this.Message + '</p>');
+                $('#messages').append('<br/>');
+
+            });
         });
 
         $('#buttonAddPost').click(function () {

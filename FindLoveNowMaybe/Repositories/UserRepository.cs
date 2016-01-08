@@ -63,5 +63,13 @@ namespace Repositories
             return randomUsers;
         }
 
+        public string ReturnFullNameById(int id)
+        {
+            var user = Context.User.FirstOrDefault(x => x.Id.Equals(id));
+            var fullName = user.FirstName + " " + user.LastName;
+
+            return fullName;
+        }
+
     }
 }

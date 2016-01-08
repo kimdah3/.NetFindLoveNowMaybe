@@ -9,6 +9,7 @@ namespace FindLoveNowMaybe.Models
     {
         public int SenderID { get; set; } 
         public int RecieverID { get; set; }
+        public string SenderFullName { get; set; }
         public string Message { get; set; }
     }
 }
