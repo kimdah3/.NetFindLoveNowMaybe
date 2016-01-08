@@ -25,10 +25,8 @@
             </a>
             <div class="caption">
                 <h3>@Model.RandomUsers[0].UserName </h3>
-                <p>Hej hej</p>
-                <p>
-                    <a href="/home/register" class="btn btn-info">See profile</a>
-                </p>
+                <p>@Model.RandomUsers[0].Description</p>
+                    @Html.ActionLink("See profile", "VisitUser", "User", new { visitUser = @Model.RandomUsers[0].UserName }, new { @class = "btn btn-info" })
             </div>
         </div>
     </div>
@@ -41,10 +39,8 @@
             </a>
             <div class="caption">
                 <h3>@Model.RandomUsers[1].UserName</h3>
-                <p>Loves estrella and OLW</p>
-                <p>
-                    <a href="\Content\Images/register" class="btn btn-info">See profile</a>
-                </p>
+                <p>@Model.RandomUsers[1].Description</p>
+                    @Html.ActionLink("See profile", "VisitUser", "User", new { visitUser = @Model.RandomUsers[1].UserName }, new { @class = "btn btn-info" })
             </div>
         </div>
     </div>
@@ -57,10 +53,8 @@
             </a>
             <div class="caption">
                 <h3>@Model.RandomUsers[2].UserName</h3>
-                <p>Loves julmust</p>
-                <p>
-                    <a href="/home/register" class="btn btn-info">See profile</a>
-                </p>
+                <p>@Model.RandomUsers[2].Description</p>
+                    @Html.ActionLink("See profile", "VisitUser", "User", new { visitUser = @Model.RandomUsers[2].UserName }, new { @class = "btn btn-info" })
             </div>
         </div>
     </div>
@@ -72,10 +66,8 @@
             </a>
             <div class="caption">
                 <h3>@Model.RandomUsers[3].UserName</h3>
-                <p>Loves bollnäsfil</p>
-                <p>
-                    <a href="/home/register" class="btn btn-info">See profile</a>
-                </p>
+                <p>@Model.RandomUsers[3].Description</p>
+                    @Html.ActionLink("See profile", "VisitUser", "User", new { visitUser = @Model.RandomUsers[3].UserName }, new { @class = "btn btn-info" })
             </div>
         </div>
     </div>

@@ -131,6 +131,23 @@ namespace FindLoveNowMaybe.Controllers
             return RedirectToAction("FriendRequest");
         }
 
+        public ActionResult SendFriendRequest(string senderUserName, string receiverUserName)
+        {
+            var senderUser = new User();
+            var receiverUser = new User();
+            using (var userRespo = new UserRepository())
+            {
+                senderUser = userRespo.GetUserByUserName(senderUserName);
+                receiverUser = userRespo.GetUserByUserName(receiverUserName);
+            }
+
+            using (var friendReqRepository = new FriendReqRepository())
+            {
+                friendReqRepository.SendFriendRequest(senderUser,receiverUser);
+            }
+
+            return RedirectToAction("FriendRequest");
+        }
     }
 
 

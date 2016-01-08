@@ -11,8 +11,8 @@
     <div class="jumbotron text-center">
         <h1>Find Love Now Maybe</h1>
         <p>At our site for only $50/month you will find your next love, maybe.</p>
-        @Html.ActionLink("Login", "Index", "Account",null, new { @class = "btn btn-primary" })
-        @Html.ActionLink("Register", "Register", "Account", null, new {@class="btn btn-success"})
+        @Html.ActionLink("Login", "Index", "Account", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-success" })
     </div>
 </div>
 
@@ -32,10 +32,7 @@
             </a>
             <div class="caption">
                 <h3>@Model.RandomUsers[0].UserName </h3>
-                <p>Hej hej</p>
-                <p>
-                    <a href="/home/register" class="btn btn-info">See profile</a>
-                </p>
+                @Html.ActionLink("See profile", "Register", "Account", null, new { @class = "btn btn-info" })
             </div>
         </div>
     </div>
@@ -48,10 +45,7 @@
             </a>
             <div class="caption">
                 <h3>@Model.RandomUsers[1].UserName</h3>
-                <p>Loves estrella and OLW</p>
-                <p>
-                    <a href="\Content\Images/register" class="btn btn-info">See profile</a>
-                </p>
+                @Html.ActionLink("See profile", "Register", "Account", null, new { @class = "btn btn-info" })
             </div>
         </div>
     </div>
@@ -64,10 +58,7 @@
             </a>
             <div class="caption">
                 <h3>@Model.RandomUsers[2].UserName</h3>
-                <p>Loves julmust</p>
-                <p>
-                    <a href="/home/register" class="btn btn-info">See profile</a>
-                </p>
+                @Html.ActionLink("See profile", "Register", "Account", null, new { @class = "btn btn-info" })
             </div>
         </div>
     </div>
@@ -79,12 +70,8 @@
             </a>
             <div class="caption">
                 <h3>@Model.RandomUsers[3].UserName</h3>
-                <p>Loves bollnäsfil</p>
-                <p>
-                    <a href="/home/register" class="btn btn-info">See profile</a>
-                </p>
+                @Html.ActionLink("See profile", "Register", "Account", null, new { @class = "btn btn-info" })
             </div>
         </div>
     </div>
 </div>
-

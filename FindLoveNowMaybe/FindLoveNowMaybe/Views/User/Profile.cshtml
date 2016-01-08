@@ -72,8 +72,7 @@
                 $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
                     console.log(data);
                     $.each(data.Message, function () {
-                        $('#messages').append('<div class = "well">');
-                        $('#messages').append('<p>From: ' + this.SenderFullName + '</p>');
+                        $('#messages').append('<div class = "well"> <p>From: ' + this.SenderFullName + '</p>');
                         $('#messages').append('<p>Message:' + this.Message + '</p>');
                         $('#messages').append('<br/>');
                         $('#messages').append('</div>');

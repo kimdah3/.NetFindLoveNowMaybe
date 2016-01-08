@@ -53,7 +53,7 @@
                  
                     <li>@Html.ActionLink("Log out", "Index", "Home")</li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@User.Identity.Name<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Friend Requests", "FriendRequest", "User")</li>
                             <li>@Html.ActionLink("Friends", "Friends", "User") </li>
