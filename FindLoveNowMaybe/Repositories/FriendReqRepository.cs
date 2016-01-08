@@ -33,8 +33,8 @@ namespace Repositories
             using (var db = new FindLoveDbEntities())
             {
                 var result = from r in db.Friend
-                    where r.ReceiverId == ActiveUser.Id && r.Accepted == false
-                    select r;
+                             where r.ReceiverId == ActiveUser.Id && r.Accepted == false
+                             select r;
                 var UserRep = new UserRepository();
                 foreach (var item in result)
                 {
@@ -42,6 +42,19 @@ namespace Repositories
                 }
             }
             return returnList;
+        }
+
+        public static List<Friend> returnAllPendingRequestsByUser(User ActiveUser)
+        {
+            using (var context = new FindLoveDbEntities())
+            {
+                var result = from f in context.Friend
+                    where f.ReceiverId == ActiveUser.Id
+                          && f.Accepted == false
+                    select f;
+
+                return result.ToList();
+            }
         }
 
         public static void SendFriendRequest(User sender, User Reciever)
@@ -58,11 +71,11 @@ namespace Repositories
             }
         }
 
-        public static void AcceptOrDenyRequests(int sender, int reciever, bool accepted)
+        public static void AcceptOrDenyRequests(int sender, int receiver, bool accepted)
         {
             using (var db = new FindLoveDbEntities())
             {
-                var currentRequest = db.Friend.FirstOrDefault(x => x.ReceiverId == reciever && x.SenderId == sender);
+                var currentRequest = db.Friend.FirstOrDefault(x => x.ReceiverId == receiver && x.SenderId == sender);
 
                 if (accepted)
                 {

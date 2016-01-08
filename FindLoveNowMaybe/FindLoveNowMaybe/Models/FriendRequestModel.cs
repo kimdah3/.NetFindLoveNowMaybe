@@ -6,7 +6,8 @@ using Repositories;
 
 namespace FindLoveNowMaybe.Models
 {
-    public class FriendRequestModel : List<User>
+    public class FriendRequestModel
     {
+        public List<Friend> FriendReqs { get; set; }
     }
 }
