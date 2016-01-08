@@ -32,10 +32,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-left">
+                    <li>@Html.ActionLink("Profile", "Profile", "User", new { username = User.Identity.Name }, null) </li>
                     <li>@Html.ActionLink("Edit", "EditUser", "Edit")</li>
                     <li>@Html.ActionLink("Friends", "Friends", "User") </li>
-                    <li>@Html.ActionLink("Friend Requests ", "FriendRequest", "User", null, new {@class = "badge"}) </li>
-                    <li>@Html.ActionLink("Profile", "Profile", "User", null, new {username = User.Identity.Name}) </li>
+                    <li>@Html.ActionLink("Friend Requests ", "FriendRequest", "User") </li>
+                    <li>@Html.TextBox("search", new {@class = "form-control"})</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                  
@@ -43,7 +44,6 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-
                             <li>@Html.ActionLink("Friend Requests", "FriendRequest", "User")</li>
                             <li>@Html.ActionLink("Friends", "Friends", "User") </li>
                             <li><a href="#">Wall messages</a></li>
