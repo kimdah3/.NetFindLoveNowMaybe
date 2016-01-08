@@ -1,4 +1,5 @@
-﻿@model FindLoveNowMaybe.Models.UserModel
+﻿
+@model FindLoveNowMaybe.Models.UserModel
 @{
     ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -9,91 +10,91 @@
 <br />
 
 <div class="row">
-
-
-    <div class="col-md-3 col-sm-6 hero-feature">
+    <div class="col-md-4 col-sm-6 hero-feature">
         <div class="thumbnail">
 
             <img src="~/Content/Images/@Model.Picture" class="img-rounded" alt="hej">
             <br />
-            <p>Description: @Model.Description</p>
 
             @using (Html.BeginForm("UserPicture", "Picture", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
+                <label class="btn btn-info">
+                    <input name="file" type="file" style="display: none" />
+                    Choose file
+                </label>
+                <br />
+                <br />
 
-                <input name="file" type="file" />
-                <input type="submit" value="Change Profile" />
 
+                <label class="btn btn-info">
+
+                    <input type="submit" value="Change Profile" style="display: none" />
+                    Upload picture
+                </label>
             }
         </div>
-        <br />
+
+
+        <h3> Information about : @Model.FirstName  </h3>
+        <h4>Username: @Model.UserName</h4>
+        <h4>Age: @Model.Age</h4>
+        <h4>Sex: @Model.Sex</h4>
+        <h4>Interested in men: @Model.InterestedMen</h4>
+        <h4>Interested in women: @Model.InterestedWomen</h4>
+        <h4>Description: @Model.Description</h4>
 
 
     </div>
-    <div class="col-md-3">
-        <p>Username: @Model.UserName</p>
 
-        <p>Age: @Model.Age</p>
-        <p>Picture: @Model.Picture</p>
-        <p>Sex: @Model.Sex</p>
-        <p>Age: @Model.Age</p>
-        <p>Interested in men: @Model.InterestedMen</p>
-        <p>Interested in women: @Model.InterestedWomen</p>
-        <br />
-    </div>
+    <div class="col-md-8 col-centered" id="minEgnaDiv">
+        <div class="well">
+            <h3>Write on my wall!</h3>
+            <br />
 
+            <div class="input-group" id="textAreaMiddle">
+                <textarea class="form-control input-sm chat-input" id="textAreaId" rows="8" cols="200" placeholder="Write your message here..."></textarea>
 
-</div>
+                <span>
+                    <button class="btn btn-info" id="buttonAddPost">Add post</button>
+                </span>
+            </div>
+            <hr data-brackets-id="12673">
 
-<div class="col-md-6 col-centered" id="minEgnaDiv">
-    <div class="well">
-        <h4>Write on my wall!</h4>
-        <br />
+            <div class="well" id="messages">
 
-        <div class="input-group" id="textAreaMiddle">
-            <textarea class="form-control input-sm chat-input" id="textAreaId" rows="8" cols="20" placeholder="Write your message here..."></textarea>
+            </div>
 
-            <span>
-                <button class="btn btn-info" id="buttonAddPost">Add post</button>
-            </span>
         </div>
-        <hr data-brackets-id="12673">
-        <div id="messages">
-            @*<ul data-brackets-id="12674" id="sortable" class="list-unstyled ui-sortable">
-
-                <li> Användarnamn : </li>
-                <p>meddelande : </p>
-
-            </ul>*@
-                
-        </div>
-        
     </div>
-</div>
+
+    <script type="text/javascript">
+            $(function () {
+                $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
+                    console.log(data);
+                    $.each(data.Message, function () {
+                        $('#messages').append('<div class = "well">');
+                        $('#messages').append('<p>From: ' + this.SenderFullName + '</p>');
+                        $('#messages').append('<p>Message:' + this.Message + '</p>');
+                        $('#messages').append('<br/>');
+                        $('#messages').append('</div>');
+
+                    });
+                });
 
 
-<script type="text/javascript">
-    $(function () {
-        $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
-            console.log(data);
-            $.each(data.Message, function () {
-                $('#messages').append('<p>From: ' + this.SenderFullName + '</p>');
-                $('#messages').append('<p>Message:' + this.Message + '</p>');
-                $('#messages').append('<br/>');
+                $('#buttonAddPost').click(function () {
+                    var messageText = $('#textAreaId').val();
+                    var userName = '@Model.UserName';
+                    console.log(messageText);
+                    console.log(userName);
+                    $.post("../APIController/Message/PostMessage?RecieverUsername=" + userName + "&Message=" + messageText,
+                        function () {
+                            alert();
+                        });
+                });
 
             });
-        });
+    </script>
 
-        $('#buttonAddPost').click(function () {
-            var messageText = $('#textAreaId').val();
-            var userName = '@Model.UserName';
-            console.log(messageText);
-            console.log(userName);
-            $.post("../APIController/Message/PostMessage?RecieverUsername=" + userName + "&Message=" + messageText,
-                function () {
-                    alert();
-                });
-        });
 
-    });
-</script>
+</div>
