@@ -33,6 +33,7 @@ namespace Repositories
         public bool InterestedMen { get; set; }
         public bool InterestedWomen { get; set; }
         public bool Visible { get; set; }
+        public Nullable<bool> Active { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Friend> Friend { get; set; }

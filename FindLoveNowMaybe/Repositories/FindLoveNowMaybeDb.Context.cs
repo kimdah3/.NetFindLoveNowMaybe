@@ -29,5 +29,6 @@ namespace Repositories
         public virtual DbSet<Message> Message { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<Visitors> Visitors { get; set; }
     }
 }

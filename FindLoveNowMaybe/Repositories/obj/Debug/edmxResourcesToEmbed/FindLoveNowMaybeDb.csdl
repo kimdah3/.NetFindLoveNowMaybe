@@ -19,6 +19,7 @@
     <Property Name="SenderId" Type="Int32" Nullable="false" />
     <Property Name="ReceiverId" Type="Int32" Nullable="false" />
     <Property Name="Message1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -38,6 +39,7 @@
     <NavigationProperty Name="Friend" Relationship="Self.FK__Friend__Receiver__4CA06362" FromRole="User" ToRole="Friend" />
     <NavigationProperty Name="Friend1" Relationship="Self.FK__Friend__SenderId__4BAC3F29" FromRole="User" ToRole="Friend" />
     <Property Name="Visible" Type="Boolean" Nullable="false" />
+    <Property Name="Active" Type="Boolean" />
   </EntityType>
   <Association Name="FK__Friend__Receiver__4CA06362">
     <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -76,6 +78,7 @@
       <End Role="Friend" EntitySet="Friend" />
     </AssociationSet>
     <EntitySet Name="Category" EntityType="FindLoveDbModel.Category" />
+    <EntitySet Name="Visitors" EntityType="FindLoveDbModel.Visitors" />
   </EntityContainer>
   <EntityType Name="Category">
     <Key>
@@ -85,5 +88,14 @@
     <Property Name="ActiveUserId" Type="Int32" Nullable="false" />
     <Property Name="FriendId" Type="Int32" Nullable="false" />
     <Property Name="Category1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Visitors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VisitorUserId" Type="Int32" Nullable="false" />
+    <Property Name="VisitedUserId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
 </Schema>

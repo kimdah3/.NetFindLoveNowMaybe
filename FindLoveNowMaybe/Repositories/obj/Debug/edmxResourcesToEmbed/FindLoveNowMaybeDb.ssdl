@@ -26,6 +26,7 @@
     <Property Name="SenderId" Type="int" Nullable="false" />
     <Property Name="ReceiverId" Type="int" Nullable="false" />
     <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -43,6 +44,16 @@
     <Property Name="InterestedMen" Type="bit" Nullable="false" />
     <Property Name="InterestedWomen" Type="bit" Nullable="false" />
     <Property Name="Visible" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Visitors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitorUserId" Type="int" Nullable="false" />
+    <Property Name="VisitedUserId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
   </EntityType>
   <Association Name="FK__Friend__Receiver__4CA06362">
     <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -73,6 +84,7 @@
     <EntitySet Name="Friend" EntityType="Self.Friend" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Visitors" EntityType="Self.Visitors" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Friend__Receiver__4CA06362" Association="Self.FK__Friend__Receiver__4CA06362">
       <End Role="User" EntitySet="User" />
       <End Role="Friend" EntitySet="Friend" />

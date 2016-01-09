@@ -31,6 +31,7 @@
           <Property Name="SenderId" Type="int" Nullable="false" />
           <Property Name="ReceiverId" Type="int" Nullable="false" />
           <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -48,6 +49,16 @@
           <Property Name="InterestedMen" Type="bit" Nullable="false" />
           <Property Name="InterestedWomen" Type="bit" Nullable="false" />
           <Property Name="Visible" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="Visitors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VisitorUserId" Type="int" Nullable="false" />
+          <Property Name="VisitedUserId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK__Friend__Receiver__4CA06362">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -78,6 +89,7 @@
           <EntitySet Name="Friend" EntityType="Self.Friend" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visitors" EntityType="Self.Visitors" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Friend__Receiver__4CA06362" Association="Self.FK__Friend__Receiver__4CA06362">
             <End Role="User" EntitySet="User" />
             <End Role="Friend" EntitySet="Friend" />
@@ -110,6 +122,7 @@
           <Property Name="SenderId" Type="Int32" Nullable="false" />
           <Property Name="ReceiverId" Type="Int32" Nullable="false" />
           <Property Name="Message1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -129,6 +142,7 @@
           <NavigationProperty Name="Friend" Relationship="Self.FK__Friend__Receiver__4CA06362" FromRole="User" ToRole="Friend" />
           <NavigationProperty Name="Friend1" Relationship="Self.FK__Friend__SenderId__4BAC3F29" FromRole="User" ToRole="Friend" />
           <Property Name="Visible" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
         </EntityType>
         <Association Name="FK__Friend__Receiver__4CA06362">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -167,6 +181,7 @@
             <End Role="Friend" EntitySet="Friend" />
           </AssociationSet>
           <EntitySet Name="Category" EntityType="FindLoveDbModel.Category" />
+          <EntitySet Name="Visitors" EntityType="FindLoveDbModel.Visitors" />
         </EntityContainer>
         <EntityType Name="Category">
           <Key>
@@ -176,6 +191,15 @@
           <Property Name="ActiveUserId" Type="Int32" Nullable="false" />
           <Property Name="FriendId" Type="Int32" Nullable="false" />
           <Property Name="Category1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Visitors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VisitorUserId" Type="Int32" Nullable="false" />
+          <Property Name="VisitedUserId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -195,6 +219,7 @@
           <EntitySetMapping Name="Message">
             <EntityTypeMapping TypeName="FindLoveDbModel.Message">
               <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SenderId" ColumnName="SenderId" />
                 <ScalarProperty Name="ReceiverId" ColumnName="ReceiverId" />
@@ -205,6 +230,7 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="FindLoveDbModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Visible" ColumnName="Visible" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -226,6 +252,16 @@
                 <ScalarProperty Name="Category1" ColumnName="Category" />
                 <ScalarProperty Name="FriendId" ColumnName="FriendId" />
                 <ScalarProperty Name="ActiveUserId" ColumnName="ActiveUserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visitors">
+            <EntityTypeMapping TypeName="FindLoveDbModel.Visitors">
+              <MappingFragment StoreEntitySet="Visitors">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="VisitedUserId" ColumnName="VisitedUserId" />
+                <ScalarProperty Name="VisitorUserId" ColumnName="VisitorUserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

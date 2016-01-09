@@ -13,6 +13,7 @@
     <EntitySetMapping Name="Message">
       <EntityTypeMapping TypeName="FindLoveDbModel.Message">
         <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SenderId" ColumnName="SenderId" />
           <ScalarProperty Name="ReceiverId" ColumnName="ReceiverId" />
@@ -23,6 +24,7 @@
     <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="FindLoveDbModel.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Visible" ColumnName="Visible" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -44,6 +46,16 @@
           <ScalarProperty Name="Category1" ColumnName="Category" />
           <ScalarProperty Name="FriendId" ColumnName="FriendId" />
           <ScalarProperty Name="ActiveUserId" ColumnName="ActiveUserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visitors">
+      <EntityTypeMapping TypeName="FindLoveDbModel.Visitors">
+        <MappingFragment StoreEntitySet="Visitors">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="VisitedUserId" ColumnName="VisitedUserId" />
+          <ScalarProperty Name="VisitorUserId" ColumnName="VisitorUserId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

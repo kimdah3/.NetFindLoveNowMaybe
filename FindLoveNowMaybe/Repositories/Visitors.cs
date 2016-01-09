@@ -12,12 +12,11 @@ namespace Repositories
     using System;
     using System.Collections.Generic;
     
-    public partial class Message
+    public partial class Visitors
     {
         public int Id { get; set; }
-        public int SenderId { get; set; }
-        public int ReceiverId { get; set; }
-        public string Message1 { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
+        public int VisitorUserId { get; set; }
+        public int VisitedUserId { get; set; }
+        public System.DateTime Date { get; set; }
     }
 }
