@@ -5,8 +5,9 @@
 }
 
 <h1>Visiting: @Model.FirstName @Model.LastName</h1>
+<br />
 @Html.ActionLink("Add friend", "SendFriendRequest", "User", new {senderUserName = User.Identity.Name, receiverUserName = Model.UserName}, new { @class = "btn btn-info" })
-
+<br/>
 <br />
 
 <div class="row">
@@ -45,7 +46,7 @@
             <hr data-brackets-id="12673">
 
             <div class="well" id="messages">
-
+             
             </div>
 
         </div>
@@ -56,10 +57,10 @@
             $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
                 console.log(data);
                 $.each(data.Message, function () {
-                    $('#messages').append('<div class = "well"> <p>From: ' + this.SenderFullName + '</p>');
-                    $('#messages').append('<p>Message:' + this.Message + '</p>');
-                    $('#messages').append('<br/>');
-                    $('#messages').append('</div>');
+                    $('#messages').prepend('<div class = "well"> <p>From: ' + this.SenderFullName + '</p>' );
+                    $('#messages').prepend('<p>Message:' + this.Message + '</p>');
+                    $('#messages').prepend('<br/>');
+                    $('#messages').prepend('</div>');
 
                 });
             });
