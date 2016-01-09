@@ -21,17 +21,20 @@ namespace Repositories
 
         public static void AddNewMessage(User sender, int recieverId, string message)
         {
-            var userRep = new UserRepository();
-            var senderId = sender.Id;
-            using (var db = new FindLoveDbEntities())
+            using (var userRep = new UserRepository())
             {
-                var newMessage = new Message();
-                newMessage.Message1 = message;
-                newMessage.ReceiverId = recieverId;
-                newMessage.SenderId = senderId;
-                db.Message.Add(newMessage);
-                db.SaveChanges();
+                var senderId = sender.Id;
+                using (var db = new FindLoveDbEntities())
+                {
+                    var newMessage = new Message();
+                    newMessage.Message1 = message;
+                    newMessage.ReceiverId = recieverId;
+                    newMessage.SenderId = senderId;
+                    db.Message.Add(newMessage);
+                    db.SaveChanges();
+                }
             }
+
         }
     }
 }

@@ -18,17 +18,19 @@ namespace Repositories
                 var result = from r in db.Friend
                              where r.ReceiverId == ActiveUser.Id || r.SenderId == ActiveUser.Id && r.Accepted == true
                              select r;
-                var UserRep = new UserRepository();
-            
-            foreach (var item in result)
+                using (var UserRep = new UserRepository())
                 {
-                    if(item.ReceiverId == ActiveUser.Id)
+                    foreach (var item in result)
                     {
-                        returnList.Add(UserRep.GetUserById(item.SenderId));
-                    }
-                    else
-                    {
-                        returnList.Add(UserRep.GetUserById(item.ReceiverId));
+                        if (item.ReceiverId == ActiveUser.Id)
+                        {
+                            returnList.Add(UserRep.GetUserById(item.SenderId));
+                        }
+                        else
+                        {
+                            returnList.Add(UserRep.GetUserById(item.ReceiverId));
+                        }
+
                     }
                 }
             }
@@ -39,19 +41,23 @@ namespace Repositories
 
         public static bool CheckIfUsersAreFriends(string SenderUserName, string RecieverUserName)
         {
-            var userRep = new UserRepository();
-            var senderId = userRep.GetUserByUserName(SenderUserName).Id;
-            var recieverId = userRep.GetUserByUserName(RecieverUserName).Id;
-
-            using (var db = new FindLoveDbEntities())
+            using (var userRep = new UserRepository())
             {
-                var result = from r in db.Friend
-                             where r.SenderId == senderId && r.ReceiverId == recieverId || r.SenderId == recieverId && r.ReceiverId == senderId
-                             select r;
 
-                return result.ToList().Count > 0;
+                var senderId = userRep.GetUserByUserName(SenderUserName).Id;
+                var recieverId = userRep.GetUserByUserName(RecieverUserName).Id;
 
+                using (var db = new FindLoveDbEntities())
+                {
+                    var result = from r in db.Friend
+                                 where r.SenderId == senderId && r.ReceiverId == recieverId || r.SenderId == recieverId && r.ReceiverId == senderId
+                                 select r;
+
+                    return result.ToList().Count > 0;
+
+                }
             }
+
         }
 
 

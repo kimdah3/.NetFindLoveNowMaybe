@@ -37,12 +37,16 @@
                     <li>@Html.ActionLink("Friends", "Friends", "User") </li>
                     <li>@Html.ActionLink("Friend Requests", "FriendRequest", "User") </li>
                 </ul>
-                @using (Html.BeginForm("Search", "Search", FormMethod.Post, new { @class = "form-group" }))
+                @using (Html.BeginForm("Search", "Search", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
                 {
-                        <input name="searchText" type="text" class="form-control" placeholder="Search">
-                        <button type="submit" class="btn btn-default">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                        </button>
+                    <input name="searchText" type="text" class="form-control" placeholder="Search">
+
+                    <button type="submit" id="searchButton" class="btn btn-default">
+
+                        <span class="glyphicon glyphicon-search" aria-hidden="true">
+
+                        </span>
+                    </button>
                 }
 
                 <ul class="nav navbar-nav navbar-right">

@@ -40,10 +40,12 @@ namespace Repositories
                 var result = from r in Context.Friend
                              where r.ReceiverId == ActiveUser.Id && r.Accepted == false
                              select r;
-                var UserRep = new UserRepository();
-                foreach (var item in result)
+                using (var UserRep = new UserRepository())
                 {
-                    returnList.Add(UserRep.GetUserById(item.SenderId));
+                    foreach (var item in result)
+                    {
+                        returnList.Add(UserRep.GetUserById(item.SenderId));
+                    }
                 }
             }
             return returnList;
@@ -51,7 +53,7 @@ namespace Repositories
 
         public List<Friend> returnAllPendingRequestsByUser(User ActiveUser)
         {
-            
+
             var result = from f in Context.Friend.Include("SenderUser")
                          where f.ReceiverId == ActiveUser.Id
                                && f.Accepted == false

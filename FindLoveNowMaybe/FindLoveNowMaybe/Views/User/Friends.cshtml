@@ -11,12 +11,14 @@
     {
         {
             <li id="FriendsDiv">
-                @Html.ActionLink(@friend.UserName,
-                    "VisitUser", "User",
-                    new {visitUser = friend.UserName},
-                    new {@class = "form-control", @style = "font-family: 'Oswald'"})
+                <img src="~/Content/Images/@friend.Picture" class="img-circle" width="60px" height="60px" alt="hej">
+                <label class="name">
+                    @Html.ActionLink(@friend.UserName, "VisitUser", "User", new { visitUser = friend.UserName }, new { @class = "form-control", @style = "font-family: 'Oswald'" })
+                </label>
             </li>
-            <br/>
+
+            <br />
+            <br />
         }
     }
 

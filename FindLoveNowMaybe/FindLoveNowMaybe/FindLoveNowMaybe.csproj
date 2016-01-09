@@ -155,6 +155,7 @@
     <Compile Include="Models\FriendRequestModel.cs" />
     <Compile Include="Models\FriendsModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\LastVisitedUsersModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MessageListModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\VisitModel.cs" />
+    <Compile Include="Models\VisitorUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
