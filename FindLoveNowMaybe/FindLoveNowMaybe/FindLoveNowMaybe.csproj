@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIController\MessageController.cs" />
+    <Compile Include="APIController\VisitController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -192,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Picture\" />
+    <Folder Include="Views\Visit\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Repositories\Repositories.csproj">

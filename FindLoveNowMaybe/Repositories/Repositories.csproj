@@ -89,6 +89,7 @@
     <Compile Include="Visitors.cs">
       <DependentUpon>FindLoveNowMaybeDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="VisitRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

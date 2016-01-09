@@ -56,9 +56,10 @@
     </div>
 
     <script type="text/javascript">
+        
+
         $(function () {
             $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
-                console.log(data);
                 $.each(data.Message, function () {
                     $('#messages').prepend('<p>Message:' + this.Message + '</p>');
                     $('#messages').prepend('<div class = "well"> <p>From: ' + this.SenderFullName + '</p>');
@@ -68,12 +69,27 @@
                 });
             });
 
+            var visitorUserName = '@User.Identity.Name';
+            var visitedUserName = '@Model.UserName';
+
+            $.post('../APIController/Visit/UserVisiting?visitorUserName=' + visitorUserName
+                                    + '&visitedUserName=' + visitedUserName);
+
+
+            //$.ajax({
+            //    url: "../APIController/Visit/UserVisiting?visitingUserName=" + visitingUserName
+            //                        + "&viewedUserName=" + viewedUserName,
+            //    type: "GET",
+            //    success: function(data) {
+            //        alert();
+            //    },
+            //    error: function () {
+            //    }
+            //});
 
             $('#buttonAddPost').click(function () {
                 var messageText = $('#textAreaId').val();
                 var userName = '@Model.UserName';
-                console.log(messageText);
-                console.log(userName);
                 $.post("../APIController/Message/PostMessage?RecieverUsername=" + userName + "&Message=" + messageText,
                     function () {
                         alert("Message sent!");

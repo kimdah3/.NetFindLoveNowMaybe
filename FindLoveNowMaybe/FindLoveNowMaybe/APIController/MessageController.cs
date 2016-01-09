@@ -18,13 +18,6 @@ namespace FindLoveNowMaybe.APIController
             var modelList = new Models.MessageListModel();
             var allMessages = Repositories.MessageRepository.GetAllPostsForUser(userRepo.GetUserByUserName(ActiveUser));
 
-            //modelList.Message.Add(new MessageModel()
-            //{
-            //    Message = "hej",
-            //    RecieverID = 1,
-            //    SenderID = 2,
-            //});
-
             var messages = new List<MessageModel>();
             foreach (var m in allMessages)
             {
@@ -34,7 +27,6 @@ namespace FindLoveNowMaybe.APIController
                 model.RecieverID = m.ReceiverId;
                 model.SenderFullName = userRepo.ReturnFullNameById(model.SenderID);
                 messages.Add(model);
-                //modelList.Message.Add(model);
             }
 
             modelList.Message = messages;
