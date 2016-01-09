@@ -11,12 +11,26 @@ namespace FindLoveNowMaybe.Controllers
     public class SearchController : Controller
     {
         // GET: Search
+        //[HttpGet]
+        //public ActionResult Search()
+        //{
+        //    var model = new SearchModel();
+        //    model.FoundUsers = null;
+        //    model.SearchText = "";
+        //    return View(model);
+        //}
+
         [HttpGet]
-        public ActionResult Search()
+        public ActionResult Search(string searchText)
         {
             var model = new SearchModel();
-            model.FoundUsers = null;
+
+            using (var searchRepository = new SearchRepository())
+            {
+                model.FoundUsers = searchRepository.SearchUserByUserName(searchText);
+            }
             model.SearchText = "";
+
             return View(model);
         }
 

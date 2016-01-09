@@ -42,9 +42,9 @@
             <h4>Interested in men: @Model.InterestedMen</h4>
             <h4>Interested in women: @Model.InterestedWomen</h4>
             <h4>Description: @Model.Description</h4>
-            </div>
-
         </div>
+
+    </div>
 
     <div class="col-md-8 col-centered" id="minEgnaDiv">
         <div class="well">
@@ -68,31 +68,31 @@
     </div>
 
     <script type="text/javascript">
-            $(function () {
-                $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
-                    console.log(data);
-                    $.each(data.Message, function () {
-                        $('#messages').prepend('<div class = "well"> <p>From: ' + this.SenderFullName + '</p>');
-                        $('#messages').prepend('<p>Message:' + this.Message + '</p>');
-                        $('#messages').prepend('<br/>');
-                        $('#messages').prepend('</div>');
+        $(function () {
+            $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
+                console.log(data);
+                $.each(data.Message, function () {
+                    $('#messages').prepend('<p>Message:' + this.Message + '</p>');
+                    $('#messages').prepend('<div class = "well"> <p>From: ' + this.SenderFullName + '</p>');
+                    $('#messages').append('<br/>');
+                    $('#messages').append('</div>');
 
-                    });
                 });
-
-
-                $('#buttonAddPost').click(function () {
-                    var messageText = $('#textAreaId').val();
-                    var userName = '@Model.UserName';
-                    console.log(messageText);
-                    console.log(userName);
-                    $.post("../APIController/Message/PostMessage?RecieverUsername=" + userName + "&Message=" + messageText,
-                        function () {
-                            alert();
-                        });
-                });
-
             });
+
+
+            $('#buttonAddPost').click(function () {
+                var messageText = $('#textAreaId').val();
+                var userName = '@Model.UserName';
+                console.log(messageText);
+                console.log(userName);
+                $.post("../APIController/Message/PostMessage?RecieverUsername=" + userName + "&Message=" + messageText,
+                    function () {
+                        alert();
+                    });
+            });
+
+        });
     </script>
 
 

@@ -13,9 +13,10 @@
             <li id="FriendsDiv">
                 @Html.ActionLink(@friend.UserName,
                     "VisitUser", "User",
-                    new {visitUser  = friend.UserName },
+                    new {visitUser = friend.UserName},
                     new {@class = "form-control", @style = "font-family: 'Oswald'"})
             </li>
+            <br/>
         }
     }
 

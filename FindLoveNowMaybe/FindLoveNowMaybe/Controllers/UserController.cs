@@ -97,6 +97,8 @@ namespace FindLoveNowMaybe.Controllers
             var userRepository = new UserRepository();
             var visitingUser = userRepository.GetUserByUserName(visitUser);
 
+            var isFriends = FriendRepositories.CheckIfUsersAreFriends(User.Identity.Name, visitUser);
+
             var visitModel = new VisitModel()
             {
                 UserName = visitingUser.UserName,
@@ -107,7 +109,8 @@ namespace FindLoveNowMaybe.Controllers
                 InterestedWomen = visitingUser.InterestedWomen,
                 LastName = visitingUser.LastName,
                 Picture = visitingUser.Picture,
-                Sex = visitingUser.Sex
+                Sex = visitingUser.Sex,
+                IsFriends = isFriends
             };
 
             return View(visitModel);

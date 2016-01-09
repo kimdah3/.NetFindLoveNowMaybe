@@ -34,7 +34,7 @@
             <p>@foundUser.FirstName @foundUser.LastName</p>
             <p>Username: @foundUser.UserName</p>
             <p>Age: @foundUser.Age</p>
-            <input class="btn btn-info" type="seeProfile" value="See profile" />
+            @Html.ActionLink("See profile", "VisitUser", "User", new {visitUser = foundUser.UserName}, new {@class="btn btn-info"})
         </div>
         <br />
     }

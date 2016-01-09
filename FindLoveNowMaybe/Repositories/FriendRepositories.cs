@@ -37,6 +37,23 @@ namespace Repositories
 
         }
 
+        public static bool CheckIfUsersAreFriends(string SenderUserName, string RecieverUserName)
+        {
+            var userRep = new UserRepository();
+            var senderId = userRep.GetUserByUserName(SenderUserName).Id;
+            var recieverId = userRep.GetUserByUserName(RecieverUserName).Id;
+
+            using (var db = new FindLoveDbEntities())
+            {
+                var result = from r in db.Friend
+                             where r.SenderId == senderId && r.ReceiverId == recieverId || r.SenderId == recieverId && r.ReceiverId == senderId
+                             select r;
+
+                return result.ToList().Count > 0;
+
+            }
+        }
+
 
     }
 }

@@ -16,5 +16,8 @@ namespace FindLoveNowMaybe.Models
         public bool Sex { get; set; }
         public bool InterestedMen { get; set; }
         public bool InterestedWomen { get; set; }
+
+        public bool IsFriends { get; set; }
+
     }
 }
