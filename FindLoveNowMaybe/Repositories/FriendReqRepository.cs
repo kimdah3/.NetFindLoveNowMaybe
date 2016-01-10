@@ -32,24 +32,24 @@ namespace Repositories
 
         }
 
-        public List<User> returnAllPendingRequestUsers(User ActiveUser)
-        {
-            var returnList = new List<User>();
-            using (var db = new FindLoveDbEntities())
-            {
-                var result = from r in Context.Friend
-                             where r.ReceiverId == ActiveUser.Id && r.Accepted == false
-                             select r;
-                using (var UserRep = new UserRepository())
-                {
-                    foreach (var item in result)
-                    {
-                        returnList.Add(UserRep.GetUserById(item.SenderId));
-                    }
-                }
-            }
-            return returnList;
-        }
+        //public List<User> returnAllPendingRequestUsers(User ActiveUser)
+        //{
+        //    var returnList = new List<User>();
+        //    using (var db = new FindLoveDbEntities())
+        //    {
+        //        var result = from r in Context.Friend
+        //                     where r.ReceiverId == ActiveUser.Id && r.Accepted == false
+        //                     select r;
+        //        using (var UserRep = new UserRepository())
+        //        {
+        //            foreach (var item in result)
+        //            {
+        //                returnList.Add(UserRep.GetUserById(item.SenderId));
+        //            }
+        //        }
+        //    }
+        //    return returnList;
+        //}
 
         public List<Friend> returnAllPendingRequestsByUser(User ActiveUser)
         {

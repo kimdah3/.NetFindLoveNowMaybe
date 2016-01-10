@@ -36,5 +36,16 @@ namespace Repositories
             }
 
         }
+
+        public static void RemoveMessage(int MessageId)
+        {
+            using (var db = new FindLoveDbEntities())
+            {
+                var msg = db.Message.FirstOrDefault(x => x.Id == MessageId);
+                db.Message.Remove(msg);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

@@ -151,6 +151,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AmountOfFriendRequestsModel.cs" />
     <Compile Include="Models\EditModel.cs" />
     <Compile Include="Models\FriendRequestModel.cs" />
     <Compile Include="Models\FriendsModel.cs" />

@@ -13,7 +13,6 @@ namespace FindLoveNowMaybe.Controllers
     [Authorize]
     public class UserController : Controller
     {
-        // GET: User
         public ActionResult Profile()
         {
             var userName = User.Identity.Name;

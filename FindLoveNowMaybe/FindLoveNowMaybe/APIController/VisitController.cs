@@ -38,37 +38,5 @@ namespace FindLoveNowMaybe.APIController
 
             return model;
         }
-
-        //[HttpGet]
-        //public Models.MessageListModel LastVisitedUsers(string ActiveUser)
-        //{
-        //    var userRepo = new Repositories.UserRepository();
-
-        //    var modelList = new Models.MessageListModel();
-        //    var allMessages = Repositories.MessageRepository.GetAllPostsForUser(userRepo.GetUserByUserName(ActiveUser));
-
-        //    var messages = new List<MessageModel>();
-        //    foreach (var m in allMessages)
-        //    {
-        //        var model = new Models.MessageModel();
-        //        model.Message = m.Message1;
-        //        model.SenderID = m.SenderId;
-        //        model.RecieverID = m.ReceiverId;
-        //        model.SenderFullName = userRepo.ReturnFullNameById(model.SenderID);
-        //        messages.Add(model);
-        //    }
-
-        //    modelList.Message = messages;
-
-        //    return modelList;
-        //}
-
-        //[HttpGet]
-        //public LastVisitedUsersModel LastVisitedUsers(string ActiveUser)
-        //{
-
-        //    return new LastVisitedUsersModel() { Visitors = new List<User>()};
-        //}
-
     }
 }
