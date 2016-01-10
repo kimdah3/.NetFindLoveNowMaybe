@@ -14,8 +14,9 @@ namespace FindLoveNowMaybe.Controllers
     public class UserController : Controller
     {
         // GET: User
-        public ActionResult Profile(string userName)
+        public ActionResult Profile()
         {
+            var userName = User.Identity.Name;
             var model = new UserModel();
             using (var userRepository = new UserRepository())
             {
@@ -37,16 +38,15 @@ namespace FindLoveNowMaybe.Controllers
             return View(model);
         }
 
-        public ActionResult Friends(string username)
+        public ActionResult Friends()
         {
+            var userName = User.Identity.Name;
             var model = new FriendsModel();
-            if (!User.Identity.Name.Equals(""))
+            if (!userName.Equals(""))
             {
 
-                var currentuser = new UserRepository();
-
                 var userRep = new UserRepository();
-                var allFriends = FriendRepositories.ReturnAllFriends(userRep.GetUserByUserName(User.Identity.Name));
+                var allFriends = FriendRepositories.ReturnAllFriends(userRep.GetUserByUserName(userName));
 
                 foreach (var i in allFriends) //loopar och hämtar namn och bild på varje vän 
                 {
@@ -69,15 +69,6 @@ namespace FindLoveNowMaybe.Controllers
                     friendReqRepository.returnAllPendingRequestsByUser(userRep.GetUserByUserName(User.Identity.Name));
 
             }
-
-
-            //var allFriendRequests = FriendReqRepository.returnAllPendingRequestUsers(userRep.GetUserByUserName(User.Identity.Name));
-
-            //foreach (var i in allFriendRequests)  
-            //{
-            //    model.Add(i);
-            //}
-
             return View(model);
         }
 
@@ -146,7 +137,7 @@ namespace FindLoveNowMaybe.Controllers
 
             using (var friendReqRepository = new FriendReqRepository())
             {
-                friendReqRepository.SendFriendRequest(senderUser,receiverUser);
+                friendReqRepository.SendFriendRequest(senderUser, receiverUser);
             }
 
             return RedirectToAction("FriendRequest");

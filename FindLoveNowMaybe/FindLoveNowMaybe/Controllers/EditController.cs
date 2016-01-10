@@ -16,12 +16,29 @@ namespace FindLoveNowMaybe.Controllers
         [HttpGet]
         public ActionResult EditUser()
         {
-                return View(new EditModel());
+            var user = new User();
+            using (var userRepository = new UserRepository())
+            {
+                user = userRepository.GetUserByUserName(User.Identity.Name);
+            }
+
+            var model = new EditModel()
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Age = user.Age,
+                Description = user.Description,
+                Active = true,
+                Visible = true,
+                InterestedWomen = user.InterestedWomen,
+                InterestedMen = user.InterestedMen
+            };
+
+            return View(model);
         }
 
-        [HttpPost]           
-       
-            public ActionResult EditUser(EditModel model)
+        [HttpPost]
+        public ActionResult EditUser(EditModel model)
         {
             if (!ModelState.IsValid) return View(); //Om felaktig input, returnera view
 
@@ -30,32 +47,28 @@ namespace FindLoveNowMaybe.Controllers
 
             activeUser.FirstName = model.FirstName;
             activeUser.LastName = model.LastName;
-            activeUser.UserName = model.UserName;
+            activeUser.UserName = User.Identity.Name; //Cookie username eftersom ingen input av username.
             activeUser.Password = model.Password;
             activeUser.Description = model.Description;
             activeUser.Age = model.Age;
             activeUser.Sex = model.Sex;
             activeUser.InterestedMen = model.InterestedMen;
             activeUser.InterestedWomen = model.InterestedWomen;
+            activeUser.Active = model.Active;
+            activeUser.Visible = model.Visible;
 
             var currentUser = User.Identity.Name;
 
             using (var userRepository = new UserRepository())
             {
-                if (!userRepository.IsUniqueUserName(activeUser.UserName))
-                {
-                    ModelState.AddModelError("", "Username already exists!");
-                    return View();
-                }
                 var editRepository = new EditRepository();
                 editRepository.UpdatePerson(currentUser, activeUser);
                 userRepository.Save();
             }
-            FormsAuthentication.SetAuthCookie(model.UserName, false);
-            return RedirectToAction("Index", "Account");
+            return RedirectToAction("Profile", "User");
         }
 
-       
+
     }
 }
 

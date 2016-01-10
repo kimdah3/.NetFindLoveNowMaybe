@@ -24,54 +24,18 @@
 </div>
 <!--Några profiler-->
 <div class="row">
-    <div class="col-md-3 col-sm-6 hero-feature">
-        <div class="thumbnail">
-            <a href="#">
-                <img src="~/Content/Images/@Model.RandomUsers[0].Picture" class="img-rounded" alt="hej">
-
-            </a>
-            <div class="caption">
-                <h3>@Model.RandomUsers[0].UserName </h3>
-                @Html.ActionLink("See profile", "Register", "Account", null, new { @class = "btn btn-info" })
+    @foreach (var user in Model.RandomUsers)
+    {
+        <div class="col-md-3 col-sm-6 hero-feature">
+            <div class="thumbnail">
+                <a href="~/Account/Register">
+                    <img src="~/Content/Images/@user.Picture" max-height="190" class="img-rounded" alt="hej">
+                </a>
+                <div class="caption">
+                    <h3>@user.FirstName @user.LastName </h3>
+                    @Html.ActionLink("See profile", "Register", "Account", null, new { @class = "btn btn-info" })
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6 hero-feature">
-        <div class="thumbnail">
-            <a href="#">
-                <img src="~/Content/Images/@Model.RandomUsers[1].Picture" class="img-rounded" alt="hej" width="190" height="190">
-
-            </a>
-            <div class="caption">
-                <h3>@Model.RandomUsers[1].UserName</h3>
-                @Html.ActionLink("See profile", "Register", "Account", null, new { @class = "btn btn-info" })
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 col-sm-6 hero-feature">
-        <div class="thumbnail">
-            <a href="#">
-                <img src="~/Content/Images/@Model.RandomUsers[2].Picture" class="img-rounded" alt="hej">
-
-            </a>
-            <div class="caption">
-                <h3>@Model.RandomUsers[2].UserName</h3>
-                @Html.ActionLink("See profile", "Register", "Account", null, new { @class = "btn btn-info" })
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6 hero-feature">
-        <div class="thumbnail">
-            <a href="#">
-                <img src="~/Content/Images/@Model.RandomUsers[3].Picture" class="img-rounded" alt="hej">
-
-            </a>
-            <div class="caption">
-                <h3>@Model.RandomUsers[3].UserName</h3>
-                @Html.ActionLink("See profile", "Register", "Account", null, new { @class = "btn btn-info" })
-            </div>
-        </div>
-    </div>
+    }
 </div>

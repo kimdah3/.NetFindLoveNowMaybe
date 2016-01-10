@@ -26,9 +26,17 @@
             <h3> Information about : @Model.FirstName  </h3>
             <h4>Username: @Model.UserName</h4>
             <h4>Age: @Model.Age</h4>
-            <h4>Sex: @Model.Sex</h4>
-            <h4>Interested in men: @Model.InterestedMen</h4>
-            <h4>Interested in women: @Model.InterestedWomen</h4>
+            @if (Model.Sex)
+            { <h4>Sex: Man</h4>}
+            else {<h4>Sex: Woman</h4>}
+
+            @if (Model.InterestedMen)
+            { <h4>Interested in men: Yes</h4>}
+            else {<h4>Interested in men: No</h4>}
+
+            @if (Model.InterestedWomen)
+            { <h4>Interested in women: Yes</h4>}
+            else {<h4>Interested in women: No</h4>}
             <h4>Description: @Model.Description</h4>
         </div>
 
@@ -46,7 +54,8 @@
                     <button class="btn btn-info" id="buttonAddPost">Add post</button>
                 </span>
             </div>
-            <hr data-brackets-id="12673">
+            <br/>
+            <br />
 
             <div class="well" id="messages">
 

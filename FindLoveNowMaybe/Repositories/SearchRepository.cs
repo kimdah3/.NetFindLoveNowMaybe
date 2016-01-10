@@ -18,6 +18,10 @@ namespace Repositories
 
         public List<User> SearchUserByUserName(string searchUserName)
         {
+            if (searchUserName != "" && searchUserName == null)
+            {
+                return Context.User.ToList();
+            }
             var foundUsers = new List<User>();
 
             var searchUsers = from user in Context.User

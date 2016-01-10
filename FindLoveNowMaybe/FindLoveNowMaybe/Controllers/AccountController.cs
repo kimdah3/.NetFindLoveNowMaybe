@@ -43,7 +43,7 @@ namespace FindLoveNowMaybe.Controllers
                     return View(model);
                 }
                 FormsAuthentication.SetAuthCookie(userLoggingIn.UserName, false);
-                return RedirectToAction("Profile", "User", new { userName = userLoggingIn.UserName});
+                return RedirectToAction("Profile", "User");
             }
         }
 
@@ -70,7 +70,8 @@ namespace FindLoveNowMaybe.Controllers
                 Picture = "default.png",
                 Sex = model.Sex,
                 InterestedMen = model.InterestedMen,
-                InterestedWomen = model.InterestedWomen
+                InterestedWomen = model.InterestedWomen,
+                Active = true
             };
 
             using (var userRepository = new UserRepository())

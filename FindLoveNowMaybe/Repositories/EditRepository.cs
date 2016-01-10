@@ -24,7 +24,7 @@ namespace Repositories
                 currentU.Sex = person.Sex;
                 currentU.InterestedMen = person.InterestedMen;
                 currentU.InterestedWomen = person.InterestedWomen;
-
+                currentU.Active = person.Active;
 
                 FindLoveDb.SaveChanges();
             }

@@ -19,10 +19,6 @@
             @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.LastName)
             <br />
-            @Html.LabelFor(x => x.UserName, new { @style = "font-family:'Open sans'" })
-            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(x => x.UserName)
-            <br />
             @Html.LabelFor(x => x.Password, new { @style = "font-family:'Open sans'" })
             @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.Password)
@@ -30,10 +26,19 @@
             @Html.LabelFor(x => x.PasswordMatch, new { @style = "font-family:'Open sans'" })
             @Html.PasswordFor(x => x.PasswordMatch, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.PasswordMatch)
+            <br/>
+            @Html.LabelFor(x => x.Active, new { @style = "font-family:'Open sans'" })
+            @Html.DropDownListFor(x => x.Active, new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Yes", Value = "true"},
+                new SelectListItem {Text = "No", Value = "false"}
+            }, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Active)
+            <br/>
         </div>
         <div class="col-md-3">
             @Html.LabelFor(x => x.Age, new { @style = "font-family:'Open sans'" })
-            @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.Age, new { @class = "form-control"})
             @Html.ValidationMessageFor(x => x.Age)
             <br />
             @Html.LabelFor(x => x.Sex, new { @style = "font-family:'Open sans'" })
@@ -59,6 +64,14 @@
                 new SelectListItem {Text = "No", Value = "false"}
             }, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.InterestedWomen)
+            <br />
+            @Html.LabelFor(x => x.Visible, new { @style = "font-family:'Open sans'" })
+            @Html.DropDownListFor(x => x.Visible, new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Yes", Value = "true"},
+                new SelectListItem {Text = "No", Value = "false"}
+            }, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Visible)
         </div>
         <div class="col-md-3">
             @Html.LabelFor(x => x.Description, new { @style = "font-family:'Open sans'" })
@@ -68,7 +81,7 @@
     </div>
     <br />
     <div class="col-md-3" id="knappRegister">
-        <input class="btn btn-info" type="submit" value="Update profile"/>
+        <input class="btn btn-info" type="submit" value="Update profile" />
     </div>
 
 }
