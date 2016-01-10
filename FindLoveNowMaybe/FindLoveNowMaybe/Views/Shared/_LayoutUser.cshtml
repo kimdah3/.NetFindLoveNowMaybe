@@ -36,9 +36,9 @@
                     <li>@Html.ActionLink("Edit", "EditUser", "Edit")</li>
                     <li>@Html.ActionLink("Friends", "Friends", "User") </li>
                     
-                        <a href="@Url.Action("FriendRequest", "User")" class="btn btn-info navbar-btn" type="button">
+                        <a href="@Url.Action("FriendRequest", "User")" class="navbar-brand">
                             Friend requests 
-                            <span class="glyphicon glyphicon-user"></span><span class="badge">
+                            <span class="glyphicon glyphicon-user"></span> <span class="badge">
                                 @{
                                     Html.RenderAction("GetAmountOfFriendRequests", "User");
                                 }
