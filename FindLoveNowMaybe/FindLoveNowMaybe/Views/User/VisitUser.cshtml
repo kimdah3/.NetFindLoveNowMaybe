@@ -83,18 +83,7 @@
 
             $.post('../APIController/Visit/UserVisiting?visitorUserName=' + visitorUserName
                                     + '&visitedUserName=' + visitedUserName);
-
-
-            //$.ajax({
-            //    url: "../APIController/Visit/UserVisiting?visitingUserName=" + visitingUserName
-            //                        + "&viewedUserName=" + viewedUserName,
-            //    type: "GET",
-            //    success: function(data) {
-            //        alert();
-            //    },
-            //    error: function () {
-            //    }
-            //});
+         
 
             $('#buttonAddPost').click(function () {
                 var messageText = $('#textAreaId').val();
@@ -102,6 +91,7 @@
                 $.post("../APIController/Message/PostMessage?RecieverUsername=" + userName + "&Message=" + messageText,
                     function () {
                         alert("Message sent!");
+                        location.reload();
                     });
             });
 

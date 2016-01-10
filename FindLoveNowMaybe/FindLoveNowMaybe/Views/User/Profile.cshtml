@@ -58,16 +58,8 @@
 
     <div class="col-md-6 col-centered" id="minEgnaDiv">
         <div class="well">
-            <h3>Write on my wall!</h3>
+            <h3>My wall!</h3>
             <br />
-
-            <div class="input-group" id="textAreaMiddle">
-                <textarea class="form-control input-sm chat-input" id="textAreaId" rows="8" cols="200" placeholder="Write your message here..."></textarea>
-
-                <span>
-                    <button class="btn btn-info" id="buttonAddPost">Add post</button>
-                </span>
-            </div>
             <br />
             <br />
 
@@ -90,7 +82,7 @@
             $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
                 console.log(data);
                 $.each(data.Message, function () {
-                    $('#messages').prepend('<p>Message:' + this.Message + '</p>');
+                    $('#messages').prepend('<p>Message: ' + this.Message + '</p>');
                     $('#messages').prepend('<div class = "well"> <p>From: ' + this.SenderFullName + '</p>');
                     $('#messages').append('<br/>');
                     $('#messages').append('</div>');
@@ -105,18 +97,9 @@
                 console.log(data);
             });
 
-            $('#buttonAddPost').click(function () {
-                var messageText = $('#textAreaId').val();
-                var userName = '@Model.UserName';
-                console.log(messageText);
-                console.log(userName);
-                $.post("../APIController/Message/PostMessage?RecieverUsername=" + userName + "&Message=" + messageText,
-                    function () {
-                        alert();
-                    });
             });
 
-        });
+
     </script>
 
 

@@ -54,6 +54,7 @@
     <Compile Include="Category.cs">
       <DependentUpon>FindLoveNowMaybeDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="CategoryRepository.cs" />
     <Compile Include="EditRepository.cs" />
     <Compile Include="FindLoveNowMaybeDb.Context.cs">
       <AutoGen>True</AutoGen>
