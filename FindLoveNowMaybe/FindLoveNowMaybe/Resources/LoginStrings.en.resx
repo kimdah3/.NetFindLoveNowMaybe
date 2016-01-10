@@ -120,6 +120,12 @@
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="RequiredPassword" xml:space="preserve">
+    <value>You need to enter a password</value>
+  </data>
+  <data name="RequiredUsername" xml:space="preserve">
+    <value>You need to enter a username</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>Username</value>
   </data>

@@ -120,6 +120,12 @@
   <data name="Password" xml:space="preserve">
     <value>Lösenord</value>
   </data>
+  <data name="RequiredPassword" xml:space="preserve">
+    <value>Du måste ange ett lösenord</value>
+  </data>
+  <data name="RequiredUsername" xml:space="preserve">
+    <value>Du måste ange ett användarnamn</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>Användarnamn</value>
   </data>

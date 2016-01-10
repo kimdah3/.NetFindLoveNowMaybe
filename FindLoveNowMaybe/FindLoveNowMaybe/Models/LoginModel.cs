@@ -9,11 +9,11 @@ namespace FindLoveNowMaybe.Models
     public class LoginModel
     {
         [Display(Name = "Username", ResourceType = typeof(FindLoveNowMaybe.Resources.LoginStrings))]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Username can not be empty.")]
+        [Required(ErrorMessageResourceName = "RequiredUsername", ErrorMessageResourceType = typeof(FindLoveNowMaybe.Resources.LoginStrings))]
         public string UserName { get; set; }
 
         [Display(Name = "Password", ResourceType = typeof(FindLoveNowMaybe.Resources.LoginStrings))]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Password can not be empty.")]
+        [Required(ErrorMessageResourceName = "RequiredPassword", ErrorMessageResourceType = typeof(FindLoveNowMaybe.Resources.LoginStrings))]
         public string Password { get; set; }
 
         //Felmeddelande vid login

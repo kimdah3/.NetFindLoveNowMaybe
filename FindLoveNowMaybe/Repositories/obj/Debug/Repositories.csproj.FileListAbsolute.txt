@@ -28,3 +28,13 @@ C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNow
 C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.xml
 C:\Users\ivars_000\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Linus\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\Repositories.dll.config
+C:\Users\Linus\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\Repositories.dll
+C:\Users\Linus\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\Repositories.pdb
+C:\Users\Linus\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.dll
+C:\Users\Linus\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Linus\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.xml
+C:\Users\Linus\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Linus\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+C:\Users\Linus\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.dll
+C:\Users\Linus\Documents\GitHubVisualStudio\.NetFindLoveNowMaybe\FindLoveNowMaybe\Repositories\obj\Debug\Repositories.pdb

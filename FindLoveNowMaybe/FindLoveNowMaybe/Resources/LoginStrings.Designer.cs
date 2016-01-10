@@ -70,6 +70,24 @@ namespace FindLoveNowMaybe.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You need to enter a password.
+        /// </summary>
+        public static string RequiredPassword {
+            get {
+                return ResourceManager.GetString("RequiredPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You need to enter a username.
+        /// </summary>
+        public static string RequiredUsername {
+            get {
+                return ResourceManager.GetString("RequiredUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string Username {
