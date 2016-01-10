@@ -27,8 +27,8 @@ namespace Repositories
             {
                 friendList.Add(item);
             }
-            var returnboolean = friendList.Count > 0;
-            return returnboolean;
+            return friendList.Count > 0;
+
 
         }
 

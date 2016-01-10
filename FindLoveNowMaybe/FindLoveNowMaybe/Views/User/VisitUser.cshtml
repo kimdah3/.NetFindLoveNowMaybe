@@ -70,11 +70,10 @@
         $(function () {
             $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
                 $.each(data.Message, function () {
-                    $('#messages').prepend('<p>Message:' + this.Message + '</p>');
-                    $('#messages').prepend('<div class = "well"> <p>From: ' + this.SenderFullName + '</p>');
+                    $('#messages').prepend('<h5>Message: ' + this.Message + '</h5> <br/>');
+                    $('#messages').prepend('<div class = "well"> <h4>From: ' + this.SenderFullName + '</h4>');
                     $('#messages').append('<br/>');
                     $('#messages').append('</div>');
-
                 });
             });
 
