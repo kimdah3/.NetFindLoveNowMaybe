@@ -33,3 +33,13 @@ C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowM
 C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\obj\Debug\FindLoveNowMaybe.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\obj\Debug\FindLoveNowMaybe.Tests.dll
 C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\obj\Debug\FindLoveNowMaybe.Tests.pdb
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\bin\Debug\System.Web.Http.dll
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\bin\Debug\System.Web.Http.xml
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\bin\Debug\System.Web.Http.WebHost.xml
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\bin\Debug\en\FindLoveNowMaybe.resources.dll
+C:\Users\Kim\Documents\GitHub\.NetFindLoveNowMaybe\FindLoveNowMaybe\FindLoveNowMaybe.Tests\bin\Debug\sv\FindLoveNowMaybe.resources.dll

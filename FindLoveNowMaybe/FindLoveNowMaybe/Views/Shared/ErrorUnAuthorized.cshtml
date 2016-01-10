@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "ErrorUnAuthorized";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sir, you're not authorized. Please step back!.</h2>
+<p>Error message: @Model.Exception.Message</p>
+<p>Try again later!</p>
+@Html.ActionLink("Back", "Register", "Account", null, new { @class = "btn btn-info" })
+<br />
+<br />
+<br />

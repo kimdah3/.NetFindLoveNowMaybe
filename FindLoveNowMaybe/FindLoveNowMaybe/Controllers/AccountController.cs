@@ -11,6 +11,7 @@ using Repositories;
 
 namespace FindLoveNowMaybe.Controllers
 {
+    [HandleError(ExceptionType = typeof(HttpException), View = "ErrorDbInternal")]
     public class AccountController : Controller
     {
 
@@ -54,10 +55,11 @@ namespace FindLoveNowMaybe.Controllers
         }
 
         [HttpPost]
+        [HandleError(ExceptionType = typeof(DbUpdateException), View = "ErrorDbUpdate")]
         public ActionResult Register(RegistrationModel model)
         {
             if (!ModelState.IsValid) return View(); //Om felaktig input, returnera view
-            
+
 
             var newUser = new User()
             {
@@ -78,14 +80,20 @@ namespace FindLoveNowMaybe.Controllers
             {
                 if (!userRepository.IsUniqueUserName(newUser.UserName))
                 {
-                    ModelState.AddModelError("","Username already exists!");
+                    ModelState.AddModelError("", "Username already exists!");
                     return View();
                 }
-                userRepository.Context.User.Add(newUser);
-                userRepository.Save();
+                userRepository.AddUser(newUser);
             }
             FormsAuthentication.SetAuthCookie(model.UserName, false);
             return RedirectToAction("Index", "Account");
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

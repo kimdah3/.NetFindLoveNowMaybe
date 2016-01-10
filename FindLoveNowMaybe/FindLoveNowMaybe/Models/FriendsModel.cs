@@ -7,10 +7,10 @@ using Repositories;
 
 namespace FindLoveNowMaybe.Models
 {
-    public class FriendsModel : List<User>
+    public class FriendsModel
     {
-
-//        public List<User> allFriends = new List<User>(); 
+        public List<User> Friends { get; set; }
+        public List<FriendsInCategoryModel> FriendsInCategoryModels { get; set; }
 
     }
 }

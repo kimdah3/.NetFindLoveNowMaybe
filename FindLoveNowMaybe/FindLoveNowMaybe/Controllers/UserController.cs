@@ -11,6 +11,7 @@ using Repositories;
 namespace FindLoveNowMaybe.Controllers
 {
     [Authorize]
+    [HandleError(ExceptionType = typeof(HttpException), View = "ErrorDbInternal")]
     public class UserController : Controller
     {
         public ActionResult Profile()
@@ -36,8 +37,10 @@ namespace FindLoveNowMaybe.Controllers
                     InterestedWomen = activeUser.InterestedWomen
                 };
             }
-
-
+            if (TempData.ContainsKey("Serialized"))
+            {
+                ViewBag.Serialized = TempData["Serialized"].ToString();
+            }
             ViewBag.AmountOfFriendReqs = amountOfFriendRequests;
             return View(model);
         }
@@ -45,19 +48,39 @@ namespace FindLoveNowMaybe.Controllers
         public ActionResult Friends()
         {
             var userName = User.Identity.Name;
-            var model = new FriendsModel();
+            var model = new FriendsModel()
+            {
+                Friends = new List<User>(),
+                FriendsInCategoryModels = new List<FriendsInCategoryModel>()
+            };
+
+
             if (!userName.Equals(""))
             {
 
                 var userRep = new UserRepository();
                 var allFriends = FriendRepositories.ReturnAllFriends(userRep.GetUserByUserName(userName));
-
+                var categoryRep = new CategoryRepository();
+                var allCategories = categoryRep.ReturnAllFriendsWithCategory(userName);
                 foreach (var i in allFriends) //loopar och hämtar namn och bild på varje vän 
                 {
-                    model.Add(i);
+                    if (categoryRep.IsFriendCategorised(userName, i.UserName))
+                    {
+                        model.Friends.Add(i);
+                    }
 
                 }
+                foreach (var category in allCategories)
+                {
+                    model.FriendsInCategoryModels.Add(new FriendsInCategoryModel()
+                    {
+                        Name = category.Category1,
+                        Users = categoryRep.GetFriendsByCategory(userName,category.Category1)
+                    });
+                }
+
             }
+
             return View(model);
 
         }
@@ -161,6 +184,27 @@ namespace FindLoveNowMaybe.Controllers
             return PartialView(model);
         }
 
+        public ActionResult SerializeUser()
+        {
+            var serializeRepo = new SerializeRepository();
+            var userName = User.Identity.Name;
+            serializeRepo.SerializeProfile(userName);
+
+            TempData["serialized"] = "User serialized in my documents folder, filename: XML-Profile";
+
+            return RedirectToAction("Profile");
+        }
+
+        [HttpPost]
+        public ActionResult AddFriendToCategory(FriendsModel model, string friendUserName, string categoryName)
+        {
+            var categoryRepository = new CategoryRepository();
+            var userName = User.Identity.Name;
+
+            categoryRepository.AddCategoryToFriend(userName, friendUserName, categoryName);
+
+            return RedirectToAction("Friends");
+        }
     }
 }
 

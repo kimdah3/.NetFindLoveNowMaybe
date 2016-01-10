@@ -7,19 +7,53 @@
 <h2>Friend list</h2>
 <br />
 <div class="container">
-    @foreach (var friend in Model)
+    @foreach (var friend in Model.Friends)
     {
         {
             <li id="FriendsDiv">
-                <img src="~/Content/Images/@friend.Picture" class="img-circle" width="90px" height="90px" alt="hej">
+                <img src="~/Content/Images/@friend.Picture" class="img-circle" width="90" height="90" alt="hej">
                 <label class="name">
                     @Html.ActionLink(@friend.UserName, "VisitUser", "User", new { visitUser = friend.UserName }, new { @class = "form-control", @style = "font-family: 'Oswald'" })
                 </label>
+                <span>
+                    @using (Html.BeginForm("AddFriendToCategory", "User"))
+                    {
+                        @Html.Hidden("friendUserName", friend.UserName)
+                        @Html.TextBox("categoryName", null, new { @placeholder = "Category name" })
+                        <input class="btn btn-info" type="submit" name="categoryName" value="Add To Category" />
+                    }
+                </span>
             </li>
 
             <br />
             <br />
         }
     }
-
 </div>
+
+
+<h2>In categories</h2>
+<br />
+<div class="container">
+    @if (Model.FriendsInCategoryModels != null && Model.FriendsInCategoryModels.Count > 0)
+    {
+        foreach (var friendsInCategoryModel in Model.FriendsInCategoryModels)
+        {
+            {
+                <h3>@friendsInCategoryModel.Name</h3>
+                foreach (var user in friendsInCategoryModel.Users)
+                {
+                    <img src="~/Content/Images/@user.Picture" class="img-circle" width="90" height="90" alt="hej">
+                    <label class="name">
+                        @Html.ActionLink(user.UserName, "VisitUser", "User", new {visitUser = user.UserName}, new {@class = "form-control", @style = "font-family: 'Oswald'"})
+                    </label>
+                }
+                <br/>
+            }
+        }
+    }
+</div>
+<br/>
+<br/>
+<br/>
+<br />

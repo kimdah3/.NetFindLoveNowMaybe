@@ -140,6 +140,7 @@
   <ItemGroup>
     <Compile Include="APIController\MessageController.cs" />
     <Compile Include="APIController\VisitController.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="Models\AmountOfFriendRequestsModel.cs" />
     <Compile Include="Models\EditModel.cs" />
     <Compile Include="Models\FriendRequestModel.cs" />
+    <Compile Include="Models\FriendsInCategoryModel.cs" />
     <Compile Include="Models\FriendsModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\LastVisitedUsersModel.cs" />
@@ -203,6 +205,9 @@
     <Content Include="Views\Search\Search.cshtml" />
     <Content Include="Views\User\VisitUser.cshtml" />
     <Content Include="Views\User\GetAmountOfFriendRequests.cshtml" />
+    <Content Include="Views\Shared\ErrorDbUpdate.cshtml" />
+    <Content Include="Views\Shared\ErrorDbInternal.cshtml" />
+    <Content Include="Views\Shared\ErrorUnAuthorized.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

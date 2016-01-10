@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,6 @@ namespace Repositories
         {
             return Context.User.FirstOrDefault(x => x.Id == id);
         }
-
 
         public void Save()
         {
@@ -69,6 +69,12 @@ namespace Repositories
             var fullName = user.FirstName + " " + user.LastName;
 
             return fullName;
+        }
+
+        public void AddUser(User user)
+        {
+            Context.User.Add(user);
+            Save();
         }
 
     }

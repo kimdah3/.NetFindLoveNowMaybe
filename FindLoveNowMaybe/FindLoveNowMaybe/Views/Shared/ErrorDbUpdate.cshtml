@@ -1,0 +1,13 @@
+﻿@model HandleErrorInfo
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Something happend with the database.</h2>
+<p>Error message: @Model.Exception.Message</p>
+<p>Try again later!</p>
+@Html.ActionLink("Back", "Register", "Account", null, new { @class = "btn btn-info" })
+<br />
+<br />
+<br />
