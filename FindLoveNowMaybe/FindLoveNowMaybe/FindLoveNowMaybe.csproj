@@ -202,6 +202,7 @@
     <Content Include="Views\User\IndexUser.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
     <Content Include="Views\User\VisitUser.cshtml" />
+    <Content Include="Views\User\GetAmountOfFriendRequests.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

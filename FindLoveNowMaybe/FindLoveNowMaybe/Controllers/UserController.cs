@@ -17,6 +17,8 @@ namespace FindLoveNowMaybe.Controllers
         {
             var userName = User.Identity.Name;
             var model = new UserModel();
+            var amountOfFriendRequests = 0;
+
             using (var userRepository = new UserRepository())
             {
                 var activeUser = userRepository.GetUserByUserName(userName);
@@ -34,6 +36,9 @@ namespace FindLoveNowMaybe.Controllers
                     InterestedWomen = activeUser.InterestedWomen
                 };
             }
+
+
+            ViewBag.AmountOfFriendReqs = amountOfFriendRequests;
             return View(model);
         }
 
@@ -141,7 +146,21 @@ namespace FindLoveNowMaybe.Controllers
 
             return RedirectToAction("FriendRequest");
         }
+
+        public PartialViewResult GetAmountOfFriendRequests()
+        {
+            var model = new AmountOfFriendRequestsModel();
+            var friendReqRepository = new FriendReqRepository();
+            var user = new User();
+
+            using (var userRepo = new UserRepository())
+            {
+                user = userRepo.GetUserByUserName(User.Identity.Name);
+            }
+            model.AmountPending = friendReqRepository.returnAllPendingRequestsByUser(user).Count;
+            return PartialView(model);
+        }
+
     }
-
-
 }
+

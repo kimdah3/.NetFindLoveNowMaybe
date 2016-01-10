@@ -34,7 +34,6 @@ namespace Repositories
                     db.SaveChanges();
                 }
             }
-
         }
 
         public static void RemoveMessage(int MessageId)

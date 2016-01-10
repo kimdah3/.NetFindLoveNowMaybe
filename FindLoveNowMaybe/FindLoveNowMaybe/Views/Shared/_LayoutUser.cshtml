@@ -35,10 +35,20 @@
                     <li>@Html.ActionLink("Profile", "Profile", "User", null, null) </li>
                     <li>@Html.ActionLink("Edit", "EditUser", "Edit")</li>
                     <li>@Html.ActionLink("Friends", "Friends", "User") </li>
-                    <li>@Html.ActionLink("Friend Requests", "FriendRequest", "User") </li>
+                    
+                        <a href="@Url.Action("FriendRequest", "User")" class="btn btn-info navbar-btn" type="button">
+                            Friend requests 
+                            <span class="glyphicon glyphicon-user"></span><span class="badge">
+                                @{
+                                    Html.RenderAction("GetAmountOfFriendRequests", "User");
+                                }
+                            </span>
+                        </a>
+
+                    
                 </ul>
                 @using (Html.BeginForm("Search", "Search", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
-                {
+            {
                     <input name="searchText" type="text" class="form-control" placeholder="Search">
 
                     <button type="submit" id="searchButton" class="btn btn-default">
@@ -66,6 +76,7 @@
     </div>
 
     <div class="container body-content">
+
         @RenderBody()
 
     </div>
