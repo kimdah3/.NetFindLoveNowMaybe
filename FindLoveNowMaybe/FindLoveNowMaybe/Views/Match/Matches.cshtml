@@ -1,0 +1,15 @@
+﻿@model FindLoveNowMaybe.Models.MatchesModel
+@{
+    ViewBag.Title = "Matches";
+    Layout = Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Matches</h2>
+
+@foreach (var m in Model.UserMatchesModel)
+{
+    <p>@m.User.FirstName @m.User.LastName</p>
+    <p>Match value: @m.MatchValue</p
+    <br/>
+    <br/>
+}

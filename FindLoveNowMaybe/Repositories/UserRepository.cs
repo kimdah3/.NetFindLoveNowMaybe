@@ -81,5 +81,13 @@ namespace Repositories
             Save();
         }
 
+        public List<User> GetAllUsers(string username)
+        {
+            var result = from r in Context.User
+                         where r.Active == true && r.Visible == true && r.UserName != username
+                         select r;
+
+            return result.ToList();
+        }
     }
 }
