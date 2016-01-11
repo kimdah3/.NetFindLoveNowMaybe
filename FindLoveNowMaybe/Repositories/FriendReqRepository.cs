@@ -17,6 +17,7 @@ namespace Repositories
             Context = new FindLoveDbEntities();
         }
 
+        /* Checks if a user have any pending friend requests. Returns true if there is one or more requests. */
         public bool CheckActiveFriendRequests(User ActiveUser)
         {
             var friendList = new List<Friend>();

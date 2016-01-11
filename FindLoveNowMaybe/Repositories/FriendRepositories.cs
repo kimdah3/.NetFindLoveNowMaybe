@@ -39,6 +39,7 @@ namespace Repositories
 
         }
 
+        /* Returns true if two users are already friends */
         public static bool CheckIfUsersAreFriends(string SenderUserName, string RecieverUserName)
         {
             using (var userRep = new UserRepository())

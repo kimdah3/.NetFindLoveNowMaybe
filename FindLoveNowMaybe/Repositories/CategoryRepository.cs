@@ -31,7 +31,8 @@ namespace Repositories
             }
             return returnList;
         }
-
+        
+        /* Method returns true if friend is already categorised. */
         public bool IsFriendCategorised(string ActiveUserUsername, string FriendUserName)
         {
             int ActiveUserId;
