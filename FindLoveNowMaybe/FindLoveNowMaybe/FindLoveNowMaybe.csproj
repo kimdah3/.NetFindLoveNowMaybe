@@ -212,9 +212,10 @@
     <Content Include="Views\User\GetAmountOfFriendRequests.cshtml" />
     <Content Include="Views\Shared\ErrorDbUpdate.cshtml" />
     <Content Include="Views\Shared\ErrorDbInternal.cshtml" />
-    <Content Include="Views\Shared\ErrorUnAuthorized.cshtml" />
     <Content Include="Views\Error\HttpError.cshtml" />
-    <Content Include="Views\Error\GeneralIssue.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <None Include="Views\Error\GeneralIssue.cshtml" />
+    <None Include="Views\Error\PageNotFound.cshtml" />
     <None Include="Views\Match\Matches.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -10,7 +10,10 @@
 @foreach (var m in Model.UserMatchesModel)
 {
     <img src="~/Content/Images/@m.User.Picture" class="img-circle" width="90" height="90" alt="hej">
-    <h4> @m.User.FirstName @m.User.LastName</h4>
+    <h4>
+        @Html.ActionLink(@m.User.FirstName + " " + @m.User.LastName, "VisitUser", "User", new { visitUser = m.User.UserName }, null)
+    </h4>
+
     <h4>Match value: @m.MatchValue</h4>
     <div class="progress">
         <div class="progress-bar progress-bar-striped active" role="progressbar"
@@ -22,6 +25,6 @@
         </div>
     </div>
 
-    <br/>
-    <br/>
+    <br />
+    <br />
 }

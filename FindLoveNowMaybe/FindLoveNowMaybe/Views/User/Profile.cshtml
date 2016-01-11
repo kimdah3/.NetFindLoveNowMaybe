@@ -92,10 +92,12 @@
 
 
     <script type="text/javascript">
-        $(function() {
-            $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function(data) {
+        $(function () {
+            //När sidan laddas hämtas alla meddelanden från resp. användare. För varje meddelande skapas en ta bort knapp
+            //och en dialog-ruta på den.
+            $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
                 console.log(data);
-                $.each(data.Message, function() {
+                $.each(data.Message, function () {
                     $('#messages').prepend('<h5>Message: ' + this.Message + '</h5> <br/>');
                     $('#messages').prepend('<div class = "well"> ' +
                         '<label class = "pull-right"> ' +
@@ -108,19 +110,19 @@
                     $('#messages').append('<span id="dialog"></span>');
                     $('#messages').append('</div>');
                     var messageId = this.MessageId;
-                    $('#' + this.MessageId).click(function() {
-                        $('#dialog').dialog({
+                    $('#' + this.MessageId).click(function () {
+                        $('#dialog').dialog({ //Skapar dialogruta
                             resizable: false,
                             height: 140,
                             modal: true,
                             buttons: {
-                                "Yes": function() {
-                                    $.post('../APIController/Message/RemoveMessage?messageId=' + messageId, function() {
+                                "Yes": function () {
+                                    $.post('../APIController/Message/RemoveMessage?messageId=' + messageId, function () {
                                         alert("Message deleted!");
                                         location.reload();
                                     });
                                 },
-                                "No": function() {
+                                "No": function () {
                                     $(this).dialog("close");
                                 }
                             }
@@ -128,8 +130,8 @@
                     });
                 });
 
-                $.get('../APIController/Visit/LastVisitedUsers?userName=' + '@User.Identity.Name', function(data) {
-                    $.each(data.Visitors, function() {
+                $.get('../APIController/Visit/LastVisitedUsers?userName=' + '@User.Identity.Name', function (data) {
+                    $.each(data.Visitors, function () {
                         $('#visitors').prepend('<h6>' + this.UserName + '<h6/>');
                     });
                     console.log(data);

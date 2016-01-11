@@ -25,7 +25,7 @@ namespace FindLoveNowMaybe.Controllers
 
 
             }
-            return RedirectToAction("Profile", "User", new { username = User.Identity.Name });
+            return RedirectToAction("Profile", "User");
         }
     }
 }

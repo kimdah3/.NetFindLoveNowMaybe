@@ -9,7 +9,6 @@ namespace Repositories
 {
     public class CategoryRepository
     {
-        /* RETURNERAR CATEGORIER FÖR MÅNGA GÅNGER! Finns två användare i samma categori kommer den två gånger att retuneras lizznah*/
         public List<Category> ReturnAllFriendsWithCategory(string userName)
         {
             int userId;

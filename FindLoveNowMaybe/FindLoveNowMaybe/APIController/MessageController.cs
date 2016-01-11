@@ -30,18 +30,16 @@ namespace FindLoveNowMaybe.APIController
                 model.SenderFullName = userRepo.ReturnFullNameById(model.SenderID);
                 messages.Add(model);
             }
-
             modelList.Message = messages;
-
             return modelList;
         }
 
         [HttpPost]
-        public void PostMessage(string RecieverUsername, string Message)
+        public void PostMessage(string recieverUsername, string Message)
         {
             var userRepo = new Repositories.UserRepository();
             Repositories.MessageRepository.AddNewMessage(userRepo.GetUserByUserName(User.Identity.Name),
-                userRepo.GetUserByUserName(RecieverUsername).Id, Message);
+                userRepo.GetUserByUserName(recieverUsername).Id, Message);
         }
 
         [HttpGet]
@@ -55,7 +53,6 @@ namespace FindLoveNowMaybe.APIController
         [HttpPost]
         public void RemoveMessage(int messageId)
         {
-
             MessageRepository.RemoveMessage(messageId);
         }
     }

@@ -36,11 +36,15 @@ namespace FindLoveNowMaybe.Controllers
                     InterestedWomen = activeUser.InterestedWomen
                 };
             }
+
+            //Om profil precis serialiseras hämtas detta data och på så vis ger användaren info
+            //om att dom precis gjort det och vart filen finns.
             if (TempData.ContainsKey("Serialized"))
             {
                 ViewBag.Serialized = TempData["Serialized"].ToString();
             }
             ViewBag.AmountOfFriendReqs = amountOfFriendRequests;
+
             return View(model);
         }
 
@@ -56,11 +60,9 @@ namespace FindLoveNowMaybe.Controllers
 
             if (!userName.Equals(""))
             {
-
                 var userRep = new UserRepository();
                 var allFriends = FriendRepositories.ReturnAllFriends(userRep.GetUserByUserName(userName));
                 var categoryRep = new CategoryRepository();
-                var allCategories = categoryRep.ReturnAllFriendsWithCategory(userName);
                 var allCategoriesForUser = categoryRep.GetAllCategoriesForUser(userName);
                 foreach (var i in allFriends) //loopar och hämtar namn och bild på varje vän 
                 {
@@ -75,10 +77,9 @@ namespace FindLoveNowMaybe.Controllers
                     model.FriendsInCategoryModels.Add(new FriendsInCategoryModel()
                     {
                         Name = category,
-                        Users = categoryRep.GetFriendsByCategory(userName,category)
+                        Users = categoryRep.GetFriendsByCategory(userName, category) //Hämtar alla vänner för specifik kategori
                     });
                 }
-
             }
 
             return View(model);
@@ -115,7 +116,8 @@ namespace FindLoveNowMaybe.Controllers
             var userRepository = new UserRepository();
             var visitingUser = userRepository.GetUserByUserName(visitUser);
             var matchRepo = new MatchingRepository();
-            var matchIndex = matchRepo.MatchUsers(User.Identity.Name, visitUser);
+            var random = new Random();
+            var matchIndex = matchRepo.MatchUsers(User.Identity.Name, visitUser, random) + "%"; //Lägger till % för css-style.
             var isFriends = FriendRepositories.CheckIfUsersAreFriends(User.Identity.Name, visitUser);
 
             var visitModel = new VisitModel()

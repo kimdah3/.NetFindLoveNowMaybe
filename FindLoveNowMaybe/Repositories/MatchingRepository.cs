@@ -8,7 +8,7 @@ namespace Repositories
 {
     public class MatchingRepository
     {
-        public string MatchUsers(string activeUserName, string matchUserName)
+        public string MatchUsers(string activeUserName, string matchUserName, Random random)
         {
             User activeUser;
             User matchUser;
@@ -50,8 +50,8 @@ namespace Repositories
             }
             if (matchValue <= 70)
             {
-                var random = new Random().Next(30);
-                matchValue = matchValue + random;
+                var random2 = random.Next(20);
+                matchValue = matchValue + random2;
             }
 
             return matchValue + "";

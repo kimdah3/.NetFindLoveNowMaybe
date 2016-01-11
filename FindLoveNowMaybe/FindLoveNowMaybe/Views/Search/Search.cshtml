@@ -28,7 +28,7 @@
 @if (Model.FoundUsers != null)
 {
     <h3>@Model.FoundUsers.Count users found: </h3>
-    <br/>
+    <br />
     foreach (var foundUser in Model.FoundUsers)
     {
         <div>
@@ -36,7 +36,7 @@
             <h5>@foundUser.FirstName @foundUser.LastName</h5>
             <h5>Username: @foundUser.UserName</h5>
             <h5>Age: @foundUser.Age</h5>
-            @Html.ActionLink("See profile", "VisitUser", "User", new {visitUser = foundUser.UserName}, new {@class = "btn btn-info"})
+            @Html.ActionLink("See profile", "VisitUser", "User", new { visitUser = foundUser.UserName }, new { @class = "btn btn-info" })
         </div>
         <br />
     }

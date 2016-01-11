@@ -84,6 +84,7 @@
         
 
         $(function () {
+            //Hämtar alla meddelande den valda usern har fått.
             $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
                 $.each(data.Message, function () {
                     $('#messages').prepend('<h5>Message: ' + this.Message + '</h5> <br/>');
@@ -96,13 +97,17 @@
             var visitorUserName = '@User.Identity.Name';
             var visitedUserName = '@Model.UserName';
 
+
+            //Loggar att användaren är inne på en annans profilsida.
             $.post('../APIController/Visit/UserVisiting?visitorUserName=' + visitorUserName
                                     + '&visitedUserName=' + visitedUserName);
 
+
+            //Skapar funktionallitet för att skicka ett meddelande
             $('#buttonAddPost').click(function () {
                 var messageText = $('#textAreaId').val();
                 var userName = '@Model.UserName';
-                $.post("../APIController/Message/PostMessage?RecieverUsername=" + userName + "&Message=" + messageText,
+                $.post("../APIController/Message/PostMessage?recieverUsername=" + userName + "&Message=" + messageText,
                     function () {
                         alert("Message sent!");
                         location.reload();
