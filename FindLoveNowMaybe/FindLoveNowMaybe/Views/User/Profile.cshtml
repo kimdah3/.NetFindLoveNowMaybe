@@ -130,7 +130,7 @@
 
                 $.get('../APIController/Visit/LastVisitedUsers?userName=' + '@User.Identity.Name', function(data) {
                     $.each(data.Visitors, function() {
-                        $('#visitors').prepend('<p>' + this.UserName + '<p/>');
+                        $('#visitors').prepend('<h6>' + this.UserName + '<h6/>');
                     });
                     console.log(data);
                 });
