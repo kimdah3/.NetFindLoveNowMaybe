@@ -36,8 +36,9 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li>@Html.ActionLink("Profile", "Profile", "User", null, null) </li>
                     <li>@Html.ActionLink("Edit", "EditUser", "Edit")</li>
+                    <li>@Html.ActionLink("Match", "Matches", "Match")</li>
                     <li>@Html.ActionLink("Friends", "Friends", "User") </li>
-                    
+
                         <a href="@Url.Action("FriendRequest", "User")" class="navbar-brand">
                             Friend requests 
                             <span class="glyphicon glyphicon-user"></span> <span class="badge">

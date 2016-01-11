@@ -33,6 +33,15 @@ namespace FindLoveNowMaybe.Controllers
                 }
             }
 
+            
+            var ordered = model.UserMatchesModel.OrderByDescending(x => int.Parse(x.MatchValue)).ToList();
+            model.UserMatchesModel = ordered;
+
+            foreach (var userMatchModel in model.UserMatchesModel)
+            {
+                userMatchModel.MatchValue += "%";
+            }
+
             return View(model);
         }
     }

@@ -49,8 +49,7 @@ namespace Repositories
 
             }
 
-            string returnValue = matchValue + "%";
-            return returnValue;
+            return matchValue + "";
         }
     }
 }
