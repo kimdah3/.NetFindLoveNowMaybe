@@ -1,15 +1,27 @@
-﻿@model FindLoveNowMaybe.Models.MatchesModel
+﻿@using System.Text.RegularExpressions
+@model FindLoveNowMaybe.Models.MatchesModel
 @{
     ViewBag.Title = "Matches";
-    Layout = Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
 <h2>Matches</h2>
 
 @foreach (var m in Model.UserMatchesModel)
 {
-    <p>@m.User.FirstName @m.User.LastName</p>
-    <p>Match value: @m.MatchValue</p
+    <img src="~/Content/Images/@m.User.Picture" class="img-circle" width="90" height="90" alt="hej">
+    <h4> @m.User.FirstName @m.User.LastName</h4>
+    <h4>Match value: @m.MatchValue</h4>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar"
+             aria-valuemin="0" aria-valuemax="100" style="width: @m.MatchValue">
+            <span class="glyphicon glyphicon-heart" aria-hidden="true" style="padding-right: 10px;">
+            </span>
+            @m.MatchValue
+            <span class="glyphicon glyphicon-heart" aria-hidden="true" style="padding-left: 10px;"></span>
+        </div>
+    </div>
+
     <br/>
     <br/>
 }
