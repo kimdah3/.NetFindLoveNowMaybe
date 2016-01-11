@@ -75,18 +75,19 @@
             <h5>Last 5 visited users: </h5>
             <div id="visitors"></div>
         </div>
+        
+            @if (@ViewBag.Serialized == null)
+            {
+                @Html.ActionLink("Serialize your shit!", "SerializeUser", "User", null, new { @class = "btn btn-info" })
+            }
+            else
+            {
+                <p>@ViewBag.Serialized </p>
+            }
+        
     </div>
 
-    <div>
-        @if (@ViewBag.Serialized == null)
-        {
-            @Html.ActionLink("Serialize your shit!", "SerializeUser", "User", null, new { @class = "btn btn-info" })
-        }
-        else
-        {
-            <p>@ViewBag.Serialized </p>
-        }
-    </div>
+   
 
     <script type="text/javascript">
         $(function () {
