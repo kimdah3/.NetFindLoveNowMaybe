@@ -1,4 +1,5 @@
-﻿@model FindLoveNowMaybe.Controllers.SearchModel
+﻿
+@model FindLoveNowMaybe.Controllers.SearchModel
 @{
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -27,13 +28,15 @@
 @if (Model.FoundUsers != null)
 {
     <h3>@Model.FoundUsers.Count users found: </h3>
+    <br/>
     foreach (var foundUser in Model.FoundUsers)
     {
         <div>
-            <p>@foundUser.FirstName @foundUser.LastName</p>
-            <p>Username: @foundUser.UserName</p>
-            <p>Age: @foundUser.Age</p>
-            @Html.ActionLink("See profile", "VisitUser", "User", new {visitUser = foundUser.UserName}, new {@class="btn btn-info"})
+            <img src="~/Content/Images/@foundUser.Picture" class="img-circle" width="90" height="90" alt="hej">
+            <h5>@foundUser.FirstName @foundUser.LastName</h5>
+            <h5>Username: @foundUser.UserName</h5>
+            <h5>Age: @foundUser.Age</h5>
+            @Html.ActionLink("See profile", "VisitUser", "User", new {visitUser = foundUser.UserName}, new {@class = "btn btn-info"})
         </div>
         <br />
     }
