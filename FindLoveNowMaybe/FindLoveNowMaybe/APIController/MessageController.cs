@@ -15,7 +15,7 @@ namespace FindLoveNowMaybe.APIController
         public Models.MessageListModel GetMessages(string ActiveUser)
         {
             var userRepo = new Repositories.UserRepository();
-            
+
             var modelList = new Models.MessageListModel();
             var allMessages = Repositories.MessageRepository.GetAllPostsForUser(userRepo.GetUserByUserName(ActiveUser));
 
@@ -23,6 +23,7 @@ namespace FindLoveNowMaybe.APIController
             foreach (var m in allMessages)
             {
                 var model = new Models.MessageModel();
+                model.MessageId = m.Id;
                 model.Message = m.Message1;
                 model.SenderID = m.SenderId;
                 model.RecieverID = m.ReceiverId;
@@ -39,7 +40,8 @@ namespace FindLoveNowMaybe.APIController
         public void PostMessage(string RecieverUsername, string Message)
         {
             var userRepo = new Repositories.UserRepository();
-            Repositories.MessageRepository.AddNewMessage(userRepo.GetUserByUserName(User.Identity.Name), userRepo.GetUserByUserName(RecieverUsername).Id, Message);
+            Repositories.MessageRepository.AddNewMessage(userRepo.GetUserByUserName(User.Identity.Name),
+                userRepo.GetUserByUserName(RecieverUsername).Id, Message);
         }
 
         [HttpGet]
@@ -48,10 +50,13 @@ namespace FindLoveNowMaybe.APIController
             var userRepo = new Repositories.UserRepository();
             var fullName = userRepo.ReturnFullNameById(id);
             return fullName;
-
         }
 
-        
+        [HttpPost]
+        public void RemoveMessage(int messageId)
+        {
 
+            MessageRepository.RemoveMessage(messageId);
+        }
     }
 }

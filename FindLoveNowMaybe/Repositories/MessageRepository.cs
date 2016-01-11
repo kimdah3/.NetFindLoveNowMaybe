@@ -45,6 +45,5 @@ namespace Repositories
                 db.SaveChanges();
             }
         }
-
     }
 }

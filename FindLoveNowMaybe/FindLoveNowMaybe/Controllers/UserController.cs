@@ -62,6 +62,7 @@ namespace FindLoveNowMaybe.Controllers
                 var allFriends = FriendRepositories.ReturnAllFriends(userRep.GetUserByUserName(userName));
                 var categoryRep = new CategoryRepository();
                 var allCategories = categoryRep.ReturnAllFriendsWithCategory(userName);
+                var allCategoriesForUser = categoryRep.GetAllCategoriesForUser(userName);
                 foreach (var i in allFriends) //loopar och hämtar namn och bild på varje vän 
                 {
                     if (categoryRep.IsFriendCategorised(userName, i.UserName))
@@ -70,12 +71,12 @@ namespace FindLoveNowMaybe.Controllers
                     }
 
                 }
-                foreach (var category in allCategories)
+                foreach (var category in allCategoriesForUser)
                 {
                     model.FriendsInCategoryModels.Add(new FriendsInCategoryModel()
                     {
-                        Name = category.Category1,
-                        Users = categoryRep.GetFriendsByCategory(userName,category.Category1)
+                        Name = category,
+                        Users = categoryRep.GetFriendsByCategory(userName,category)
                     });
                 }
 

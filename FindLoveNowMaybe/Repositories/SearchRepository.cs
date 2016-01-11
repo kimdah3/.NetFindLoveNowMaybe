@@ -20,13 +20,14 @@ namespace Repositories
         {
             if (searchUserName != "" && searchUserName == null)
             {
-                return Context.User.ToList();
+                return Context.User.Where(x => x.Active == true).ToList();
             }
             var foundUsers = new List<User>();
 
             var searchUsers = from user in Context.User
                               where user.UserName.StartsWith(searchUserName.Trim())
                                 && user.Visible
+                                && user.Active == true
                               select user;
             foreach (var user in searchUsers)
             {

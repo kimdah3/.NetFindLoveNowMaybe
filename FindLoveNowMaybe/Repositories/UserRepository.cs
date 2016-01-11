@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,7 +38,10 @@ namespace Repositories
 
         public User LoginUser(string userName, string password)
         {
-            var user = Context.User.FirstOrDefault(x => x.UserName == userName && x.Password.Equals(password));
+            var user = Context.User.FirstOrDefault(x => x.UserName.Equals(userName, StringComparison.OrdinalIgnoreCase) &&
+                                                        x.Password.Equals(password, StringComparison.OrdinalIgnoreCase) &&
+                                                        x.Active == true);
+
             return user;
         }
 

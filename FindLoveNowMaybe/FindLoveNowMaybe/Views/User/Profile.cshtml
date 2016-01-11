@@ -95,10 +95,23 @@
                 console.log(data);
                 $.each(data.Message, function () {
                     $('#messages').prepend('<h5>Message: ' + this.Message + '</h5> <br/>');
-                    $('#messages').prepend('<div class = "well"> <h4>From: ' + this.SenderFullName + '</h4>');
+                    $('#messages').prepend('<div class = "well"> ' +
+                        '<label class = "pull-right"> ' +
+                        '<a class="btn btn-danger  btn-xs glyphicon glyphicon-trash" href="#" title="Delete"' +
+                        'id="' + this.MessageId + '"></a> ' +
+                        '</label>' +
+                        '<h4>From: ' + this.SenderFullName +
+                        '</h4>');
                     $('#messages').append('<br/>');
                     $('#messages').append('</div>');
-
+                    $('#' + this.MessageId).click(function(data) {
+                        console.log('Nu jävlar tröck du på knapp: ' + this.id);
+                        var messageId = this.id;
+                        $.post('../APIController/Message/RemoveMessage?messageId=' + messageId, function () {
+                            alert("Message deleted!");
+                            location.reload();
+                        });
+                    });
                 });
             });
 

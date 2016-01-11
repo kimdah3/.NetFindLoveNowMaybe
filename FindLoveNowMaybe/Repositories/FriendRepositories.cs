@@ -24,17 +24,24 @@ namespace Repositories
                     {
                         if (item.ReceiverId == ActiveUser.Id)
                         {
-                            returnList.Add(UserRep.GetUserById(item.SenderId));
+                            var user = UserRep.GetUserById(item.SenderId);
+                            if (user.Active == true)
+                            {
+                                returnList.Add(user);
+                            }
                         }
                         else
                         {
-                            returnList.Add(UserRep.GetUserById(item.ReceiverId));
+                            var user = UserRep.GetUserById(item.ReceiverId);
+                            if (user.Active == true)
+                            {
+                                returnList.Add(user);
+                            }
                         }
 
                     }
                 }
             }
-
             return returnList;
 
         }

@@ -21,8 +21,8 @@ namespace Repositories
             using (var db = new FindLoveDbEntities())
             {
                 var result = from r in db.Category
-                    where r.ActiveUserId == userId
-                    select r;
+                             where r.ActiveUserId == userId
+                             select r;
 
                 foreach (var item in result)
                 {
@@ -31,7 +31,7 @@ namespace Repositories
             }
             return returnList;
         }
-        
+
         /* Method returns true if friend is already categorised. */
         public bool IsFriendCategorised(string ActiveUserUsername, string FriendUserName)
         {
@@ -85,9 +85,13 @@ namespace Repositories
                     categories = ReturnAllFriendsWithCategory(userName);
                     foreach (var category in categories)
                     {
-                        if (category.Category1.Equals(categoryName))
+                        if (string.Equals(category.Category1, categoryName, StringComparison.OrdinalIgnoreCase))
                         {
-                            users.Add(userRepo.GetUserById(category.FriendId));
+                            var user = userRepo.GetUserById(category.FriendId);
+                            if (user.Active == true)
+                            {
+                                users.Add(user);
+                            }
                         }
                     }
                 }
@@ -96,5 +100,28 @@ namespace Repositories
 
             return users;
         }
+
+
+        public List<string> GetAllCategoriesForUser(string userName)
+        {
+            int userId;
+            var returnList = new List<string>();
+
+            using (var userRep = new UserRepository())
+            {
+                userId = userRep.GetUserByUserName(userName).Id;
+            }
+
+            using (var db = new FindLoveDbEntities())
+            {
+                returnList = (from r in db.Category
+                              where r.ActiveUserId == userId
+                              select r.Category1).Distinct().ToList();
+            }
+
+            return returnList;
+        }
+
+
     }
 }

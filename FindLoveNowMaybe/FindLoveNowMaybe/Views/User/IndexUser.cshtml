@@ -21,7 +21,8 @@
     {
         <div class="col-md-3 col-sm-6 hero-feature">
             <div class="thumbnail">
-                <a href="#">
+
+                <a href="@Url.Action("VisitUser", "User", new {visitUser = user.UserName})">
                     <img src="~/Content/Images/@user.Picture" max-height="190" class="img-rounded" alt="hej">
                 </a>
                 <div class="caption">
