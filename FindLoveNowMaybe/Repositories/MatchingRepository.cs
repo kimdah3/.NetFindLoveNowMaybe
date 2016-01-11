@@ -8,7 +8,7 @@ namespace Repositories
 {
     public class MatchingRepository
     {
-        public int MatchUsers(string activeUserName, string matchUserName)
+        public string MatchUsers(string activeUserName, string matchUserName)
         {
             User activeUser;
             User matchUser;
@@ -49,8 +49,8 @@ namespace Repositories
 
             }
 
-
-            return matchValue;
+            string returnValue = matchValue + "%";
+            return returnValue;
         }
     }
 }

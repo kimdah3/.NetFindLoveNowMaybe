@@ -52,6 +52,8 @@
             else {<h4>Interested in women: No</h4>}
 
             <h4>Description: @Model.Description</h4>
+
+
         </div>
 
     </div>
@@ -75,25 +77,25 @@
             <h5>Last 5 visited users: </h5>
             <div id="visitors"></div>
         </div>
-        
-            @if (@ViewBag.Serialized == null)
+
+        @if (@ViewBag.Serialized == null)
             {
-                @Html.ActionLink("Serialize your shit!", "SerializeUser", "User", null, new { @class = "btn btn-info" })
-            }
-            else
-            {
-                <p>@ViewBag.Serialized </p>
-            }
-        
+            @Html.ActionLink("Serialize your shit!", "SerializeUser", "User", null, new { @class = "btn btn-info" })
+        }
+        else
+        {
+            <p>@ViewBag.Serialized </p>
+        }
+
     </div>
 
-   
+
 
     <script type="text/javascript">
-        $(function () {
-            $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function (data) {
+        $(function() {
+            $.get('../APIController/Message/GetMessages?ActiveUser=' + '@Model.UserName', function(data) {
                 console.log(data);
-                $.each(data.Message, function () {
+                $.each(data.Message, function() {
                     $('#messages').prepend('<h5>Message: ' + this.Message + '</h5> <br/>');
                     $('#messages').prepend('<div class = "well"> ' +
                         '<label class = "pull-right"> ' +
@@ -103,27 +105,38 @@
                         '<h4>From: ' + this.SenderFullName +
                         '</h4>');
                     $('#messages').append('<br/>');
+                    $('#messages').append('<span id="dialog"></span>');
                     $('#messages').append('</div>');
-                    $('#' + this.MessageId).click(function(data) {
-                        console.log('Nu jävlar tröck du på knapp: ' + this.id);
-                        var messageId = this.id;
-                        $.post('../APIController/Message/RemoveMessage?messageId=' + messageId, function () {
-                            alert("Message deleted!");
-                            location.reload();
+                    var messageId = this.MessageId;
+                    $('#' + this.MessageId).click(function() {
+                        $('#dialog').dialog({
+                            resizable: false,
+                            height: 140,
+                            modal: true,
+                            buttons: {
+                                "Yes": function() {
+                                    $.post('../APIController/Message/RemoveMessage?messageId=' + messageId, function() {
+                                        alert("Message deleted!");
+                                        location.reload();
+                                    });
+                                },
+                                "No": function() {
+                                    $(this).dialog("close");
+                                }
+                            }
                         });
                     });
                 });
-            });
 
-            $.get('../APIController/Visit/LastVisitedUsers?userName=' + '@User.Identity.Name', function (data) {
-                $.each(data.Visitors, function () {
-                    $('#visitors').prepend('<p>' + this.UserName + '<p/>');
+                $.get('../APIController/Visit/LastVisitedUsers?userName=' + '@User.Identity.Name', function(data) {
+                    $.each(data.Visitors, function() {
+                        $('#visitors').prepend('<p>' + this.UserName + '<p/>');
+                    });
+                    console.log(data);
                 });
-                console.log(data);
+
             });
-
         });
-
 
     </script>
 

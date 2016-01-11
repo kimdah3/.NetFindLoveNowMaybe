@@ -38,8 +38,25 @@
             { <h4>Interested in women: Yes</h4>}
             else {<h4>Interested in women: No</h4>}
             <h4>Description: @Model.Description</h4>
-        </div>
 
+            @if (!Model.isMatched)
+            {
+                @Html.ActionLink("Do we match?", "VisitUser", "User", new { visitUser = Model.UserName }, new { @class = "btn btn-info" })
+
+                <h4>Matching bar for your lover: </h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar"
+                         aria-valuemin="0" aria-valuemax="100" style="width: @Model.matchIndex">
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true" style="padding-right: 10px;">
+                        </span>
+                        @Model.matchIndex
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true" style="padding-left: 10px;"></span>
+                    </div>
+                </div>
+
+
+            }
+        </div>
     </div>
 
     <div class="col-md-8 col-centered" id="minEgnaDiv">

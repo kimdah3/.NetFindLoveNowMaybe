@@ -18,6 +18,8 @@ namespace FindLoveNowMaybe.Models
         public bool InterestedWomen { get; set; }
 
         public bool IsFriends { get; set; }
+        public bool isMatched { get; set; }
+        public string matchIndex { get; set; }
 
     }
 }

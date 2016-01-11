@@ -114,7 +114,8 @@ namespace FindLoveNowMaybe.Controllers
         {
             var userRepository = new UserRepository();
             var visitingUser = userRepository.GetUserByUserName(visitUser);
-
+            var matchRepo = new MatchingRepository();
+            var matchIndex = matchRepo.MatchUsers(User.Identity.Name, visitUser);
             var isFriends = FriendRepositories.CheckIfUsersAreFriends(User.Identity.Name, visitUser);
 
             var visitModel = new VisitModel()
@@ -128,7 +129,10 @@ namespace FindLoveNowMaybe.Controllers
                 LastName = visitingUser.LastName,
                 Picture = visitingUser.Picture,
                 Sex = visitingUser.Sex,
-                IsFriends = isFriends
+                IsFriends = isFriends,
+                matchIndex = matchIndex,
+                isMatched = false
+
             };
 
             return View(visitModel);
