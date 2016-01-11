@@ -48,6 +48,11 @@ namespace Repositories
                 }
 
             }
+            if (matchValue <= 70)
+            {
+                var random = new Random().Next(30);
+                matchValue = matchValue + random;
+            }
 
             return matchValue + "";
         }
