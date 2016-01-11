@@ -16,10 +16,14 @@
                     @Html.ActionLink(@friend.UserName, "VisitUser", "User", new { visitUser = friend.UserName }, new { @class = "form-control", @style = "font-family: 'Oswald'" })
                 </label>
                 <span>
+                    <br />
+                    <br />
+
                     @using (Html.BeginForm("AddFriendToCategory", "User"))
                     {
                         @Html.Hidden("friendUserName", friend.UserName)
-                        @Html.TextBox("categoryName", null, new { @placeholder = "Category name" })
+                        @Html.TextBox("categoryName", null, new { @class = "form-control", @placeholder = "Category name" })
+                        <br />
                         <input class="btn btn-info" type="submit" name="categoryName" value="Add To Category" />
                     }
                 </span>

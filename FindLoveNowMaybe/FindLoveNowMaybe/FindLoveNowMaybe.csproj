@@ -145,6 +145,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EditController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -208,6 +209,7 @@
     <Content Include="Views\Shared\ErrorDbUpdate.cshtml" />
     <Content Include="Views\Shared\ErrorDbInternal.cshtml" />
     <Content Include="Views\Shared\ErrorUnAuthorized.cshtml" />
+    <Content Include="Views\Error\HttpError.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
