@@ -11,7 +11,6 @@ using Repositories;
 
 namespace FindLoveNowMaybe.Controllers
 {
-    [HandleError(ExceptionType = typeof(HttpException), View = "ErrorDbInternal")]
     public class AccountController : Controller
     {
 

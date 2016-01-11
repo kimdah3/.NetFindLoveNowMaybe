@@ -11,7 +11,6 @@ using Repositories;
 namespace FindLoveNowMaybe.Controllers
 {
     [Authorize]
-    [HandleError(ExceptionType = typeof(HttpException), View = "ErrorDbInternal")]
     public class UserController : Controller
     {
         public ActionResult Profile()

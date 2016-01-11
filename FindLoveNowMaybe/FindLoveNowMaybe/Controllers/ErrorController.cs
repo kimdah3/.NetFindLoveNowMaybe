@@ -16,7 +16,7 @@ namespace FindLoveNowMaybe.Controllers
 
         public ActionResult PageNotFound()
         {
-            return RedirectToAction("HttpError");
+            return RedirectToAction("HttpError", "Error");
         }
 
         public ActionResult ServerIssues()
@@ -26,7 +26,7 @@ namespace FindLoveNowMaybe.Controllers
 
         public ActionResult GeneralIssue()
         {
-            return RedirectToAction("HttpError");
+            return View();
         }
     }
 }

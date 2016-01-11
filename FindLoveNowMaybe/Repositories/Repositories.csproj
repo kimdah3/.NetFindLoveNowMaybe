@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="FriendRepositories.cs" />
     <Compile Include="FriendReqRepository.cs" />
+    <Compile Include="MatchingRepository.cs" />
     <Compile Include="Message.cs">
       <DependentUpon>FindLoveNowMaybeDb.tt</DependentUpon>
     </Compile>
