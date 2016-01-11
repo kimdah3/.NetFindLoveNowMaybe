@@ -5,11 +5,12 @@
 }
 
 <h2>Friend list</h2>
-<br/>
+<br />
 <div class="container">
     @foreach (var friend in Model.Friends)
     {
-        {
+
+        <ul>
             <li id="FriendsDiv">
                 <img src="~/Content/Images/@friend.Picture" class="img-circle" width="90" height="90" alt="hej">
                 <label class="name">
@@ -24,14 +25,13 @@
                         @Html.Hidden("friendUserName", friend.UserName)
                         @Html.TextBox("categoryName", null, new { @class = "form-control", @placeholder = "Category name" })
                         <br />
-                        <input class="btn btn-info" type="submit" name="categoryName" value="Add To Category" />
+                            <input class="btn btn-info" type="submit" name="categoryName" value="Add To Category" />
                     }
                 </span>
             </li>
-
+        </ul>
             <br />
             <br />
-        }
     }
 </div>
 
@@ -49,15 +49,15 @@
                 {
                     <img src="~/Content/Images/@user.Picture" class="img-circle" width="90" height="90" alt="hej">
                     <label class="name">
-                        @Html.ActionLink(user.UserName, "VisitUser", "User", new {visitUser = user.UserName}, new {@class = "form-control", @style = "font-family: 'Oswald'"})
+                        @Html.ActionLink(user.UserName, "VisitUser", "User", new { visitUser = user.UserName }, new { @class = "form-control", @style = "font-family: 'Oswald'" })
                     </label>
                 }
-                <br/>
+                <br />
             }
         }
     }
 </div>
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<br />
 <br />

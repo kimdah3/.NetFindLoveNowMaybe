@@ -16,15 +16,15 @@ namespace Repositories
             using (var db = new FindLoveDbEntities())
             {
                 var result = from r in db.Friend
-                             where r.ReceiverId == ActiveUser.Id || r.SenderId == ActiveUser.Id && r.Accepted == true
+                             where (r.ReceiverId == ActiveUser.Id || r.SenderId == ActiveUser.Id) && r.Accepted
                              select r;
-                using (var UserRep = new UserRepository())
+                using (var userRep = new UserRepository())
                 {
                     foreach (var item in result)
                     {
                         if (item.ReceiverId == ActiveUser.Id)
                         {
-                            var user = UserRep.GetUserById(item.SenderId);
+                            var user = userRep.GetUserById(item.SenderId);
                             if (user.Active == true)
                             {
                                 returnList.Add(user);
@@ -32,7 +32,7 @@ namespace Repositories
                         }
                         else
                         {
-                            var user = UserRep.GetUserById(item.ReceiverId);
+                            var user = userRep.GetUserById(item.ReceiverId);
                             if (user.Active == true)
                             {
                                 returnList.Add(user);

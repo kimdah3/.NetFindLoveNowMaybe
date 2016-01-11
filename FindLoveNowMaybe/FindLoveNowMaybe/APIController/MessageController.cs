@@ -45,7 +45,7 @@ namespace FindLoveNowMaybe.APIController
         }
 
         [HttpGet]
-        public string returnFullNameFromId(int id)
+        public string ReturnFullNameFromId(int id)
         {
             var userRepo = new Repositories.UserRepository();
             var fullName = userRepo.ReturnFullNameById(id);

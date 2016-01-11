@@ -72,7 +72,8 @@ namespace FindLoveNowMaybe.Controllers
                 Sex = model.Sex,
                 InterestedMen = model.InterestedMen,
                 InterestedWomen = model.InterestedWomen,
-                Active = true
+                Active = true,
+                Visible = true
             };
 
             using (var userRepository = new UserRepository())
