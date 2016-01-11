@@ -21,7 +21,7 @@ namespace Repositories
 
             }
 
-            if (!matchUser.InterestedWomen && !activeUser.Sex || !matchUser.InterestedMen && activeUser.Sex || !activeUser.InterestedMen && matchUser.Sex || activeUser.InterestedWomen && !matchUser.Sex)
+            if (!matchUser.InterestedWomen && !activeUser.Sex || !matchUser.InterestedMen && activeUser.Sex || !activeUser.InterestedMen && matchUser.Sex || !activeUser.InterestedWomen && !matchUser.Sex)
             {
                 matchValue = 0;
             }
