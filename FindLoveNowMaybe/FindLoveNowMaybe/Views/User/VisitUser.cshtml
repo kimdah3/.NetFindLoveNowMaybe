@@ -41,8 +41,6 @@
 
             @if (!Model.isMatched)
             {
-                @Html.ActionLink("Do we match?", "VisitUser", "User", new { visitUser = Model.UserName }, new { @class = "btn btn-info" })
-
                 <h4>Matching bar for your lover: </h4>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped active" role="progressbar"
@@ -51,11 +49,12 @@
                         </span>
                         @Model.matchIndex
                         <span class="glyphicon glyphicon-heart" aria-hidden="true" style="padding-left: 10px;"></span>
-                    </div>
+                    </div>       
                 </div>
 
 
             }
+            <h5> Your match percent is: @Model.matchIndex</h5>
         </div>
     </div>
 
